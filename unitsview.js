@@ -42,7 +42,16 @@ export var CategoryListing = astronaut.component("CategoryListing", function(pro
 
 export var UnitsViewScreen = astronaut.component("UnitsViewScreen", function(props, children) {
     var page = Page(true) (
-        Section () ()
+        Section () (
+            SkeletonLoader("Loading units...") (
+                Heading(1) (),
+                astronaut.repeat(3, Paragraph() ()),
+                astronaut.repeat(3, Container (
+                    Heading(2) (),
+                    astronaut.repeat(3, Paragraph() ())
+                ))
+            )
+        )
     );
 
     var screen = Screen({showing: props.showing}) (
@@ -55,7 +64,7 @@ export var UnitsViewScreen = astronaut.component("UnitsViewScreen", function(pro
     fetch("resources.json").then(function(response) {
         return response.json();
     }).then(function(data) {
-        page.add(
+        page.clear().add(
             Section (
                 Heading() ("Primary resources"),
                 CategoryListing({category: "primary", units: data.units}) ()
