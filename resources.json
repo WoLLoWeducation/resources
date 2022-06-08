@@ -1,0 +1,22 @@
+{
+    "units": [
+        {
+            "id": "unit1",
+            "type": "unit",
+            "category": "primary",
+            "name": "Unit 1",
+            "title": "My World of Languages",
+            "lessons": [
+                {
+                    "id": "lesson1",
+                    "name": "Looking for Clues",
+                    "resources": {
+                        "worksheet": "resources/WoLLoW Unit Overview KS2 Unit 5.pdf",
+                        "presentation": "resources/Independent Schools Magazine.pdf",
+                        "cribSheet": "lookingforclues.pdf"
+                    }
+                }
+            ]
+        }
+    ]
+}
