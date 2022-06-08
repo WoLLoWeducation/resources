@@ -50,7 +50,7 @@ export var PdfContainer = astronaut.component("PdfContainer", function(props, ch
     var canvas = ElementNode("canvas", {
         styles: {
             width: "100%",
-            height: "100%",
+            height: "calc(100% - 0.5rem)",
             objectFit: "contain"
         }
     }) ();
@@ -98,13 +98,19 @@ export var PdfContainer = astronaut.component("PdfContainer", function(props, ch
         if (full) {
             fitFullButton.hide();
             fitWidthButton.show();
+
+            canvas.setStyle("height", "calc(100% - 0.5rem)");
+            canvas.setStyle("objectFit", "contain");
         } else {
             fitWidthButton.hide();
             fitFullButton.show();
+
+            canvas.setStyle("height", "unset");
+            canvas.setStyle("objectFit", "unset");
         }
     }
 
-    previousButton.on("click", function() {
+    function previousPage() {
         if (currentPage <= 1) {
             return;
         }
@@ -112,9 +118,9 @@ export var PdfContainer = astronaut.component("PdfContainer", function(props, ch
         currentPage--;
 
         render();
-    });
+    }
 
-    nextButton.on("click", function() {
+    function nextPage() {
         if (currentPage >= pdfDocument.numPages) {
             return;
         }
@@ -122,6 +128,14 @@ export var PdfContainer = astronaut.component("PdfContainer", function(props, ch
         currentPage++;
 
         render();
+    }
+
+    previousButton.on("click", function() {
+        previousPage();
+    });
+
+    nextButton.on("click", function() {
+        nextPage();
     });
 
     openExternalButton.on("click", function() {
@@ -160,6 +174,10 @@ export var PdfContainer = astronaut.component("PdfContainer", function(props, ch
         }, 500);
     });
 
+    presentButton.on("click", function() {
+        canvas.get().requestFullscreen();
+    });
+
     pageNumberInput.on("change", function() {
         currentPage = Number(pageNumberInput.getValue()) || 1;
 
@@ -172,6 +190,20 @@ export var PdfContainer = astronaut.component("PdfContainer", function(props, ch
         }
 
         render();
+    });
+
+    $g.sel("body").on("keydown", function(event) {
+        if (event.key == "ArrowLeft") {
+            previousPage();
+        }
+
+        if (event.key == "ArrowRight") {
+            nextPage();
+        }
+
+        if (event.key == " ") {
+            nextPage();
+        }
     });
 
     setFitting();
@@ -189,7 +221,8 @@ export var PdfContainer = astronaut.component("PdfContainer", function(props, ch
     }}) (
         Container({styles: {
             height: "0",
-            flexGrow: "1"
+            flexGrow: "1",
+            overflow: "auto"
         }}) (canvas),
         Container({styles: {
             display: "flex"
