@@ -1,5 +1,6 @@
-import * as astronaut from "https://opensource.liveg.tech/Adapt-UI/astronaut/astronaut.js";
-import * as aside from "https://opensource.liveg.tech/Adapt-UI/src/aside.js";
+import * as astronaut from "./lib/adaptui/astronaut/astronaut.js";
+import * as aside from "./lib/adaptui/src/aside.js";
+import * as markup from "./lib/adaptui/src/markup.js";
 
 import * as pdfViewer from "./pdfviewer.js";
 
@@ -38,6 +39,7 @@ export var LessonsViewScreen = astronaut.component("LessonsViewScreen", function
     var screen = Screen (
         Header (
             IconButton({icon: "back", alt: "Back to units list", attributes: {"aui-bind": "back"}}) (),
+            HeaderPageMenuButton() (),
             ElementNode("span") (
                 ElementNode("strong") (props.unit.name),
                 Text(": "),
@@ -49,13 +51,13 @@ export var LessonsViewScreen = astronaut.component("LessonsViewScreen", function
     var pagesToAdd = [];
     var firstLessonAdded = false;
 
-    var menu = PageMenu() (...props.unit.lessons.map(function(lesson) {
-        var accordion = Accordion() (Text(lesson.name));
+    var menu = PageMenu() (...props.unit.lessons.map(function(lesson, i) {
+        var accordion = Accordion() (Text(`${i + 1}. ${lesson.name}`));
 
         accordion.add(
-            ...Object.keys(lesson.resources).map(function(resourceType) {
+            ...Object.keys(lesson.resources).map(function(resourceType, i) {
                 var resourceUrl = lesson.resources[resourceType];
-                var isDefaultResource = !firstLessonAdded;
+                var isDefaultResource = i == 0 && ((props.lesson == null && !firstLessonAdded) || (props.lesson != null && props.lesson.id == lesson.id));
 
                 var page = ResourcePage({showing: isDefaultResource, url: resourceUrl}) ();
                 var button = PageMenuButton({page}) (RESOURCE_TYPE_NAMES[resourceType]);
@@ -83,6 +85,8 @@ export var LessonsViewScreen = astronaut.component("LessonsViewScreen", function
     aside.addPages(menu.get());
 
     screen.add(menu, ...pagesToAdd);
+
+    markup.apply(screen.get());
 
     return screen;
 });

@@ -12,8 +12,17 @@
                     "name": "Looking for Clues",
                     "resources": {
                         "worksheet": "resources/WoLLoW Unit Overview KS2 Unit 5.pdf",
-                        "presentation": "resources/Independent Schools Magazine.pdf",
-                        "cribSheet": "lookingforclues.pdf"
+                        "presentation": "resources/FBAL.pdf",
+                        "cribSheet": "resources/Independent Schools Magazine.pdf"
+                    }
+                },
+                {
+                    "id": "lesson2",
+                    "name": "Another Test",
+                    "resources": {
+                        "worksheet": "resources/WoLLoW Unit Overview KS2 Unit 5.pdf",
+                        "presentation": "resources/FBAL.pdf",
+                        "cribSheet": "resources/Independent Schools Magazine.pdf"
                     }
                 }
             ]

@@ -1,0 +1,6 @@
+[submodule "lib/lib/adaptui"]
+	path = lib/lib/adaptui
+	url = https://github.com/LiveGTech/Adapt-UI.git
+[submodule "lib/adaptui"]
+	path = lib/adaptui
+	url = https://github.com/LiveGTech/Adapt-UI.git

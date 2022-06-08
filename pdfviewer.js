@@ -1,5 +1,5 @@
-import * as $g from "https://opensource.liveg.tech/Adapt-UI/src/adaptui.js";
-import * as astronaut from "https://opensource.liveg.tech/Adapt-UI/astronaut/astronaut.js";
+import * as $g from "./lib/adaptui/src/adaptui.js";
+import * as astronaut from "./lib/adaptui/astronaut/astronaut.js";
 
 export var pdfjs = window["pdfjs-dist/build/pdf"];
 
@@ -175,6 +175,8 @@ export var PdfContainer = astronaut.component("PdfContainer", function(props, ch
     });
 
     presentButton.on("click", function() {
+        setFitting(true);
+
         canvas.get().requestFullscreen();
     });
 
