@@ -52,7 +52,13 @@ export var LessonsViewScreen = astronaut.component("LessonsViewScreen", function
     var firstLessonAdded = false;
 
     var menu = PageMenu() (...props.unit.lessons.map(function(lesson, i) {
-        var accordion = Accordion() (Text(`${i + 1}. ${lesson.name}`));
+        var accordion = Accordion() (ElementNode("strong") (`${i + 1}. ${lesson.name}`));
+
+        if (lesson.inDevelopment) {
+            accordion.add(
+                Paragraph() ("This lesson is still in development.")
+            );
+        }
 
         accordion.add(
             ...Object.keys(lesson.resources).map(function(resourceType, i) {

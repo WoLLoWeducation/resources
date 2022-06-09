@@ -11,18 +11,462 @@
                     "id": "lesson1",
                     "name": "Looking for Clues",
                     "resources": {
-                        "worksheet": "resources/WoLLoW Unit Overview KS2 Unit 5.pdf",
-                        "presentation": "resources/FBAL.pdf",
-                        "cribSheet": "resources/Independent Schools Magazine.pdf"
+                        "worksheet": "resources/primary/u1l1w.pdf",
+                        "presentation": "resources/primary/u1l1p.pdf",
+                        "cribSheet": "resources/primary/u1l1c.pdf"
                     }
                 },
                 {
                     "id": "lesson2",
-                    "name": "Another Test",
+                    "name": "Language Detective",
                     "resources": {
-                        "worksheet": "resources/WoLLoW Unit Overview KS2 Unit 5.pdf",
-                        "presentation": "resources/FBAL.pdf",
-                        "cribSheet": "resources/Independent Schools Magazine.pdf"
+                        "worksheet": "resources/primary/u1l2w.pdf",
+                        "presentation": "resources/primary/u1l2p.pdf",
+                        "cribSheet": "resources/primary/u1l2c.pdf"
+                    }
+                },
+                {
+                    "id": "lesson3",
+                    "name": "Multilingual Me!",
+                    "resources": {
+                        "worksheet": "resources/primary/u1l3w.pdf",
+                        "presentation": "resources/primary/u1l3p.pdf",
+                        "cribSheet": "resources/primary/u1l3c.pdf"
+                    }
+                },
+                {
+                    "id": "lesson4",
+                    "name": "Communicating Without Talking",
+                    "resources": {
+                        "worksheet": "resources/primary/u1l4w.pdf",
+                        "presentation": "resources/primary/u1l4p.pdf",
+                        "cribSheet": "resources/primary/u1l4c.pdf"
+                    }
+                },
+                {
+                    "id": "lesson5",
+                    "name": "A Celebration of Languages",
+                    "resources": {
+                        "worksheet": "resources/primary/u1l5w.pdf",
+                        "presentation": "resources/primary/u1l5p.pdf",
+                        "cribSheet": "resources/primary/u1l5c.pdf"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "unit2",
+            "type": "unit",
+            "category": "primary",
+            "name": "Unit 2",
+            "title": "The History of Language",
+            "lessons": [
+                {
+                    "id": "lesson1",
+                    "name": "Lovely Latin",
+                    "resources": {
+                        "worksheet": "resources/primary/u2l1w.pdf",
+                        "presentation": "resources/primary/u2l1p.pdf",
+                        "cribSheet": "resources/primary/u2l1c.pdf"
+                    }
+                },
+                {
+                    "id": "lesson2",
+                    "name": "Gorgeous Greek",
+                    "resources": {
+                        "worksheet": "resources/primary/u2l2w.pdf",
+                        "presentation": "resources/primary/u2l2p.pdf",
+                        "cribSheet": "resources/primary/u2l2c.pdf"
+                    }
+                },
+                {
+                    "id": "lesson3",
+                    "name": "Norse Influence and the Days of the Week",
+                    "resources": {
+                        "worksheet": "resources/primary/u2l3w.pdf",
+                        "presentation": "resources/primary/u2l3p.pdf",
+                        "cribSheet": "resources/primary/u2l3c.pdf"
+                    }
+                },
+                {
+                    "id": "lesson4",
+                    "name": "Clever Celtic",
+                    "resources": {
+                        "worksheet": "resources/primary/u2l4w.pdf",
+                        "presentation": "resources/primary/u2l4p.pdf",
+                        "cribSheet": "resources/primary/u2l4c.pdf"
+                    }
+                },
+                {
+                    "id": "lesson5",
+                    "name": "Fantastic (Norman) French",
+                    "resources": {
+                        "worksheet": "resources/primary/u2l5w.pdf",
+                        "presentation": "resources/primary/u2l5p.pdf",
+                        "cribSheet": "resources/primary/u2l5c.pdf"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "unit3",
+            "type": "unit",
+            "category": "primary",
+            "name": "Unit 3",
+            "title": "Wonderful Words",
+            "lessons": [
+                {
+                    "id": "lesson1",
+                    "name": "Loanwords",
+                    "resources": {
+                        "worksheet": "resources/primary/u3l1w.pdf",
+                        "presentation": "resources/primary/u3l1p.pdf",
+                        "cribSheet": "resources/primary/u3l1c.pdf"
+                    }
+                },
+                {
+                    "id": "lesson2",
+                    "name": "Cognates",
+                    "resources": {
+                        "worksheet": "resources/primary/u3l2w.pdf",
+                        "presentation": "resources/primary/u3l2p.pdf",
+                        "cribSheet": "resources/primary/u3l2c.pdf"
+                    }
+                },
+                {
+                    "id": "lesson3",
+                    "name": "Made-Up Words",
+                    "resources": {
+                        "worksheet": "resources/primary/u3l3w.pdf",
+                        "presentation": "resources/primary/u3l3p.pdf",
+                        "cribSheet": "resources/primary/u3l3c.pdf"
+                    }
+                },
+                {
+                    "id": "lesson4",
+                    "name": "Prefixes, Suffixes and Roots",
+                    "resources": {
+                        "worksheet": "resources/primary/u3l4w.pdf",
+                        "presentation": "resources/primary/u3l4p.pdf",
+                        "cribSheet": "resources/primary/u3l4c.pdf"
+                    }
+                },
+                {
+                    "id": "lesson5",
+                    "name": "Cryptic Hidden Meanings",
+                    "resources": {
+                        "worksheet": "resources/primary/u3l5w.pdf",
+                        "presentation": "resources/primary/u3l5p.pdf",
+                        "cribSheet": "resources/primary/u3l5c.pdf"
+                    }
+                },
+                {
+                    "id": "lesson6",
+                    "name": "Loughborough: Spelling and its Problems",
+                    "resources": {
+                        "worksheet": "resources/primary/u3l6w.pdf",
+                        "presentation": "resources/primary/u3l6p.pdf",
+                        "cribSheet": "resources/primary/u3l6c.pdf"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "unit4",
+            "type": "unit",
+            "category": "primary",
+            "name": "Unit 4",
+            "title": "How Language Works",
+            "lessons": [
+                {
+                    "id": "lesson1",
+                    "name": "Verbs",
+                    "resources": {
+                        "worksheet": "resources/primary/u4l1w.pdf",
+                        "presentation": "resources/primary/u4l1p.pdf",
+                        "cribSheet": "resources/primary/u4l1c.pdf"
+                    }
+                },
+                {
+                    "id": "lesson2",
+                    "name": "What is Gender?",
+                    "resources": {
+                        "worksheet": "resources/primary/u4l2w.pdf",
+                        "presentation": "resources/primary/u4l2p.pdf",
+                        "cribSheet": "resources/primary/u4l2c.pdf"
+                    }
+                },
+                {
+                    "id": "lesson3",
+                    "name": "Question Words",
+                    "inDevelopment": true,
+                    "resources": {}
+                },
+                {
+                    "id": "lesson4",
+                    "name": "Word Order",
+                    "resources": {
+                        "worksheet": "resources/primary/u4l4w.pdf",
+                        "presentation": "resources/primary/u4l4p.pdf",
+                        "cribSheet": "resources/primary/u4l4c.pdf"
+                    }
+                },
+                {
+                    "id": "lesson5",
+                    "name": "Vowels, Consonants and Phonics",
+                    "inDevelopment": true,
+                    "resources": {
+                        "presentation": "resources/primary/u4l5p.pdf",
+                        "cribSheet": "resources/primary/u4l5c.pdf"
+                    }
+                },
+                {
+                    "id": "lesson6",
+                    "name": "What is a Noun?",
+                    "inDevelopment": true,
+                    "resources": {
+                        "presentation": "resources/primary/u4l5p.pdf",
+                        "cribSheet": "resources/primary/u4l5c.pdf"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "unit5",
+            "type": "unit",
+            "category": "primary",
+            "name": "Unit 5",
+            "title": "A Linguistic Journey Around the World",
+            "lessons": [
+                {
+                    "id": "lesson1",
+                    "name": "The Language Tree",
+                    "inDevelopment": true,
+                    "resources": {}
+                },
+                {
+                    "id": "lesson2",
+                    "name": "Romance Languages",
+                    "inDevelopment": true,
+                    "resources": {}
+                },
+                {
+                    "id": "lesson3",
+                    "name": "Germanic Languages",
+                    "inDevelopment": true,
+                    "resources": {}
+                },
+                {
+                    "id": "lesson4",
+                    "name": "Sanskrit, Hindi and Urdu",
+                    "inDevelopment": true,
+                    "resources": {}
+                },
+                {
+                    "id": "lesson5",
+                    "name": "Idiom",
+                    "resources": {
+                        "worksheet": "resources/primary/u5l5w.pdf",
+                        "presentation": "resources/primary/u5l5p.pdf",
+                        "cribSheet": "resources/primary/u5l5c.pdf"
+                    }
+                },
+                {
+                    "id": "lesson6",
+                    "name": "Idiom and Culture",
+                    "resources": {
+                        "worksheet": "resources/primary/u5l6w.pdf",
+                        "presentation": "resources/primary/u5l6p.pdf",
+                        "cribSheet": "resources/primary/u5l6c.pdf"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "unit6",
+            "type": "unit",
+            "category": "primary",
+            "name": "Unit 6",
+            "title": "Creating a Language",
+            "lessons": [
+                {
+                    "id": "lesson1",
+                    "name": "Forming a Language",
+                    "resources": {
+                        "worksheet": "resources/primary/u6l1w.pdf",
+                        "presentation": "resources/primary/u6l1p.pdf",
+                        "cribSheet": "resources/primary/u6l1c.pdf"
+                    }
+                },
+                {
+                    "id": "lesson2",
+                    "name": "Choosing Sounds",
+                    "resources": {
+                        "worksheet": "resources/primary/u6l2w.pdf",
+                        "presentation": "resources/primary/u6l2p.pdf",
+                        "cribSheet": "resources/primary/u6l2c.pdf"
+                    }
+                },
+                {
+                    "id": "lesson3",
+                    "name": "Choosing Words",
+                    "resources": {
+                        "worksheet": "resources/primary/u6l3w.pdf",
+                        "presentation": "resources/primary/u6l3p.pdf",
+                        "cribSheet": "resources/primary/u6l3c.pdf"
+                    }
+                },
+                {
+                    "id": "lesson4",
+                    "name": "Writing Words",
+                    "resources": {
+                        "worksheet": "resources/primary/u6l4w.pdf",
+                        "presentation": "resources/primary/u6l4p.pdf",
+                        "cribSheet": "resources/primary/u6l4c.pdf"
+                    }
+                },
+                {
+                    "id": "lesson5",
+                    "name": "Building Sentences",
+                    "resources": {
+                        "worksheet": "resources/primary/u6l5w.pdf",
+                        "presentation": "resources/primary/u6l5p.pdf",
+                        "cribSheet": "resources/primary/u6l5c.pdf"
+                    }
+                },
+                {
+                    "id": "lesson6",
+                    "name": "Being Creative in Your Language",
+                    "resources": {
+                        "worksheet": "resources/primary/u6l6w.pdf",
+                        "presentation": "resources/primary/u6l6p.pdf",
+                        "cribSheet": "resources/primary/u6l6c.pdf"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "lowerunit1",
+            "type": "unit",
+            "category": "primaryLowerAlt",
+            "name": "Unit 1",
+            "title": "",
+            "lessons": [
+                {
+                    "id": "lesson1",
+                    "name": "",
+                    "resources": {
+                        "worksheet": "resources/primary/lu1l1w.pdf",
+                        "presentation": "resources/primary/lu1l1p.pdf",
+                        "cribSheet": "resources/primary/lu1l1c.pdf"
+                    }
+                },
+                {
+                    "id": "lesson2",
+                    "name": "",
+                    "resources": {
+                        "worksheet": "resources/primary/lu1l2w.pdf",
+                        "presentation": "resources/primary/lu1l2p.pdf",
+                        "cribSheet": "resources/primary/lu1l2c.pdf"
+                    }
+                },
+                {
+                    "id": "lesson3",
+                    "name": "",
+                    "resources": {
+                        "worksheet": "resources/primary/lu1l3w.pdf",
+                        "presentation": "resources/primary/lu1l3p.pdf",
+                        "cribSheet": "resources/primary/lu1l3c.pdf"
+                    }
+                },
+                {
+                    "id": "lesson4",
+                    "name": "",
+                    "resources": {
+                        "worksheet": "resources/primary/lu1l4w.pdf",
+                        "presentation": "resources/primary/lu1l4p.pdf",
+                        "cribSheet": "resources/primary/lu1l4c.pdf"
+                    }
+                },
+                {
+                    "id": "lesson5",
+                    "name": "",
+                    "resources": {
+                        "worksheet": "resources/primary/lu1l5w.pdf",
+                        "presentation": "resources/primary/lu1l5p.pdf",
+                        "cribSheet": "resources/primary/lu1l5c.pdf"
+                    }
+                },
+                {
+                    "id": "lesson6",
+                    "name": "",
+                    "resources": {
+                        "worksheet": "resources/primary/lu1l6w.pdf",
+                        "presentation": "resources/primary/lu1l6p.pdf",
+                        "cribSheet": "resources/primary/lu1l6c.pdf"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "lowerunit2",
+            "type": "unit",
+            "category": "primaryLowerAlt",
+            "name": "Unit 2",
+            "title": "",
+            "lessons": [
+                {
+                    "id": "lesson1",
+                    "name": "",
+                    "resources": {
+                        "worksheet": "resources/primary/lu2l1w.pdf",
+                        "presentation": "resources/primary/lu2l1p.pdf",
+                        "cribSheet": "resources/primary/lu2l1c.pdf"
+                    }
+                },
+                {
+                    "id": "lesson2",
+                    "name": "",
+                    "resources": {
+                        "worksheet": "resources/primary/lu2l2w.pdf",
+                        "presentation": "resources/primary/lu2l2p.pdf",
+                        "cribSheet": "resources/primary/lu2l2c.pdf"
+                    }
+                },
+                {
+                    "id": "lesson3",
+                    "name": "",
+                    "resources": {
+                        "worksheet": "resources/primary/lu2l3w.pdf",
+                        "presentation": "resources/primary/lu2l3p.pdf",
+                        "cribSheet": "resources/primary/lu2l3c.pdf"
+                    }
+                },
+                {
+                    "id": "lesson4",
+                    "name": "",
+                    "resources": {
+                        "worksheet": "resources/primary/lu2l4w.pdf",
+                        "presentation": "resources/primary/lu2l4p.pdf",
+                        "cribSheet": "resources/primary/lu2l4c.pdf"
+                    }
+                },
+                {
+                    "id": "lesson5",
+                    "name": "",
+                    "resources": {
+                        "worksheet": "resources/primary/lu2l5w.pdf",
+                        "presentation": "resources/primary/lu2l5p.pdf",
+                        "cribSheet": "resources/primary/lu2l5c.pdf"
+                    }
+                },
+                {
+                    "id": "lesson6",
+                    "name": "",
+                    "resources": {
+                        "worksheet": "resources/primary/lu2l6w.pdf",
+                        "presentation": "resources/primary/lu2l6p.pdf",
+                        "cribSheet": "resources/primary/lu2l6c.pdf"
                     }
                 }
             ]
