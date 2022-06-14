@@ -181,7 +181,9 @@
                 {
                     "id": "lesson1",
                     "name": "Verbs",
-                    "resources": {
+                    "inDevelopment": true,
+                    "resources": {},
+                    "-resources": {
                         "worksheet": "resources/primary/u4l1w.pdf",
                         "presentation": "resources/primary/u4l1p.pdf",
                         "cribSheet": "resources/primary/u4l1c.pdf"
@@ -190,7 +192,9 @@
                 {
                     "id": "lesson2",
                     "name": "What is Gender?",
-                    "resources": {
+                    "inDevelopment": true,
+                    "resources": {},
+                    "-resources": {
                         "worksheet": "resources/primary/u4l2w.pdf",
                         "presentation": "resources/primary/u4l2p.pdf",
                         "cribSheet": "resources/primary/u4l2c.pdf"
@@ -205,7 +209,9 @@
                 {
                     "id": "lesson4",
                     "name": "Word Order",
-                    "resources": {
+                    "inDevelopment": true,
+                    "resources": {},
+                    "-resources": {
                         "worksheet": "resources/primary/u4l4w.pdf",
                         "presentation": "resources/primary/u4l4p.pdf",
                         "cribSheet": "resources/primary/u4l4c.pdf"
@@ -215,7 +221,8 @@
                     "id": "lesson5",
                     "name": "Vowels, Consonants and Phonics",
                     "inDevelopment": true,
-                    "resources": {
+                    "resources": {},
+                    "-resources": {
                         "presentation": "resources/primary/u4l5p.pdf",
                         "cribSheet": "resources/primary/u4l5c.pdf"
                     }
@@ -224,7 +231,8 @@
                     "id": "lesson6",
                     "name": "What is a Noun?",
                     "inDevelopment": true,
-                    "resources": {
+                    "resources": {},
+                    "-resources": {
                         "presentation": "resources/primary/u4l5p.pdf",
                         "cribSheet": "resources/primary/u4l5c.pdf"
                     }
