@@ -23,6 +23,7 @@ export var ResourcePage = astronaut.component("ResourcePage", function(props, ch
         page.clear().add(
             pdfViewer.PdfContainer({
                 url: props.url,
+                downloadFilename: props.downloadFilename,
                 styles: {
                     height: "100%"
                 }
@@ -65,7 +66,12 @@ export var LessonsViewScreen = astronaut.component("LessonsViewScreen", function
                 var resourceUrl = lesson.resources[resourceType];
                 var isDefaultResource = i == 0 && ((props.lesson == null && !firstLessonAdded) || (props.lesson != null && props.lesson.id == lesson.id));
 
-                var page = ResourcePage({showing: isDefaultResource, url: resourceUrl}) ();
+                var page = ResourcePage({
+                    showing: isDefaultResource,
+                    url: resourceUrl,
+                    downloadFilename: `${props.unit.name} - ${props.lesson.name} - ${RESOURCE_TYPE_NAMES[resourceType]}.pdf`
+                }) ();
+
                 var button = PageMenuButton({page}) (RESOURCE_TYPE_NAMES[resourceType]);
 
                 if (isDefaultResource) {

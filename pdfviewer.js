@@ -57,6 +57,7 @@ export var PdfContainer = astronaut.component("PdfContainer", function(props, ch
 
     var previousButton = PdfControlButton({icon: "back", alt: "Previous page"}) ();
     var nextButton = PdfControlButton({icon: "forward", alt: "Next page"}) ();
+    var downloadButton = PdfControlButton({icon: "download", alt: "Download document"}) ();
     var openExternalButton = PdfControlButton({icon: "opennew", alt: "Open document in new tab"}) ();
     var fitWidthButton = PdfControlButton({icon: "panin", alt: "Fit document by width"}) ();
     var fitFullButton = PdfControlButton({icon: "panout", alt: "Fit document fully"}) ();
@@ -76,7 +77,6 @@ export var PdfContainer = astronaut.component("PdfContainer", function(props, ch
 
     var pdfDocument = null;
     var currentPage = 1;
-    var isFitFully = true;
 
     function render() {
         return pdfDocument.getPage(currentPage).then(function(page) {
@@ -136,6 +136,15 @@ export var PdfContainer = astronaut.component("PdfContainer", function(props, ch
 
     nextButton.on("click", function() {
         nextPage();
+    });
+
+    downloadButton.on("click", function() {
+        var link = $g.create("a");
+
+        link.setAttribute("href", props.url);
+        link.setAttribute("download", props.downloadFilename || props.url);
+
+        link.get().click();
     });
 
     openExternalButton.on("click", function() {
@@ -229,6 +238,7 @@ export var PdfContainer = astronaut.component("PdfContainer", function(props, ch
         Container({styles: {
             display: "flex"
         }}) (
+            downloadButton,
             openExternalButton,
             fitWidthButton,
             fitFullButton,
