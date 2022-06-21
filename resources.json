@@ -474,6 +474,361 @@
                     }
                 }
             ]
+        },
+        {
+            "id": "unit1",
+            "type": "unit",
+            "category": "secondaryYr7",
+            "name": "Unit 1",
+            "title": "The World of Languages",
+            "lessons": [
+                {
+                    "id": "lesson1",
+                    "name": "The Languages in My Life",
+                    "inDevelopment": true,
+                    "resources": {}
+                },
+                {
+                    "id": "lesson2",
+                    "name": "Multilingual Britain",
+                    "resources": {
+                        "worksheet": "resources/secondary-yr7/u1l2w.pdf",
+                        "presentation": "resources/secondary-yr7/u1l2p.pdf",
+                        "cribSheet": "resources/secondary-yr7/u1l2c.pdf"
+                    }
+                },
+                {
+                    "id": "lesson3",
+                    "name": "What Makes a Language?",
+                    "resources": {
+                        "worksheet": "resources/secondary-yr7/u1l3w.pdf",
+                        "presentation": "resources/secondary-yr7/u1l3p.pdf",
+                        "cribSheet": "resources/secondary-yr7/u1l3c.pdf"
+                    }
+                },
+                {
+                    "id": "lesson4",
+                    "name": "Multilingualism and the Arts",
+                    "resources": {
+                        "worksheet": "resources/secondary-yr7/u1l4w.pdf",
+                        "presentation": "resources/secondary-yr7/u1l4p.pdf",
+                        "cribSheet": "resources/secondary-yr7/u1l4c.pdf"
+                    }
+                },
+                {
+                    "id": "lesson5",
+                    "name": "Variation",
+                    "resources": {
+                        "worksheet": "resources/secondary-yr7/u1l5w.pdf",
+                        "presentation": "resources/secondary-yr7/u1l5p.pdf",
+                        "cribSheet": "resources/secondary-yr7/u1l5c.pdf"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "unit2",
+            "type": "unit",
+            "category": "secondaryYr7",
+            "name": "Unit 2",
+            "title": "The History of English",
+            "lessons": [
+                {
+                    "id": "lesson1",
+                    "name": "Celtic",
+                    "resources": {
+                        "worksheet": "resources/secondary-yr7/u2l1w.pdf",
+                        "presentation": "resources/secondary-yr7/u2l1p.pdf",
+                        "cribSheet": "resources/secondary-yr7/u2l1c.pdf"
+                    }
+                },
+                {
+                    "id": "lesson2",
+                    "name": "Anglo Saxon",
+                    "resources": {
+                        "worksheet": "resources/secondary-yr7/u2l2w.pdf",
+                        "presentation": "resources/secondary-yr7/u2l2p.pdf",
+                        "cribSheet": "resources/secondary-yr7/u2l2c.pdf"
+                    }
+                },
+                {
+                    "id": "lesson3",
+                    "name": "The Vikings",
+                    "resources": {
+                        "worksheet": "resources/secondary-yr7/u2l3w.pdf",
+                        "presentation": "resources/secondary-yr7/u2l3p.pdf",
+                        "cribSheet": "resources/secondary-yr7/u2l3c.pdf"
+                    }
+                },
+                {
+                    "id": "lesson4",
+                    "name": "The Normans",
+                    "resources": {
+                        "worksheet": "resources/secondary-yr7/u2l4w.pdf",
+                        "presentation": "resources/secondary-yr7/u2l4p.pdf",
+                        "cribSheet": "resources/secondary-yr7/u2l4c.pdf"
+                    }
+                },
+                {
+                    "id": "lesson5",
+                    "name": "Modern English",
+                    "resources": {
+                        "worksheet": "resources/secondary-yr7/u2l5w.pdf",
+                        "presentation": "resources/secondary-yr7/u2l5p.pdf",
+                        "cribSheet": "resources/secondary-yr7/u2l5c.pdf"
+                    }
+                },
+                {
+                    "id": "lesson6",
+                    "name": "Names",
+                    "resources": {
+                        "worksheet": "resources/secondary-yr7/u2l6w.pdf",
+                        "presentation": "resources/secondary-yr7/u2l6p.pdf",
+                        "cribSheet": "resources/secondary-yr7/u2l6c.pdf"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "unit3",
+            "type": "unit",
+            "category": "secondaryYr7",
+            "name": "Unit 3",
+            "title": "How Does Language Work?",
+            "lessons": [
+                {
+                    "id": "lesson1",
+                    "name": "Infinitives",
+                    "resources": {
+                        "worksheet": "resources/secondary-yr7/u3l1w.pdf",
+                        "presentation": "resources/secondary-yr7/u3l1p.pdf",
+                        "cribSheet": "resources/secondary-yr7/u3l1c.pdf"
+                    }
+                },
+                {
+                    "id": "lesson2",
+                    "name": "Conjugation",
+                    "resources": {
+                        "worksheet": "resources/secondary-yr7/u3l2w.pdf",
+                        "presentation": "resources/secondary-yr7/u3l2p.pdf",
+                        "cribSheet": "resources/secondary-yr7/u3l2c.pdf"
+                    }
+                },
+                {
+                    "id": "lesson3",
+                    "name": "Destructuring a Sentence",
+                    "resources": {
+                        "worksheet": "resources/secondary-yr7/u3l3w.pdf",
+                        "presentation": "resources/secondary-yr7/u3l3p.pdf",
+                        "cribSheet": "resources/secondary-yr7/u3l3c.pdf"
+                    }
+                },
+                {
+                    "id": "lesson4",
+                    "name": "Word Order and Meaning",
+                    "resources": {
+                        "worksheet": "resources/secondary-yr7/u3l4w.pdf",
+                        "presentation": "resources/secondary-yr7/u3l4p.pdf",
+                        "presentationExtension": "resources/secondary-yr7/u3l4pext.pdf",
+                        "cribSheet": "resources/secondary-yr7/u3l4c.pdf"
+                    }
+                },
+                {
+                    "id": "lesson5",
+                    "name": "Semantics",
+                    "resources": {
+                        "worksheet": "resources/secondary-yr7/u3l5w.pdf",
+                        "presentation": "resources/secondary-yr7/u3l5p.pdf",
+                        "cribSheet": "resources/secondary-yr7/u3l5c.pdf"
+                    }
+                },
+                {
+                    "id": "lesson6",
+                    "name": "Idiomatic Phrases",
+                    "resources": {
+                        "worksheet": "resources/secondary-yr7/u3l6w.pdf",
+                        "presentation": "resources/secondary-yr7/u3l6p.pdf",
+                        "cribSheet": "resources/secondary-yr7/u3l6c.pdf"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "unit4",
+            "type": "unit",
+            "category": "secondaryYr7",
+            "name": "Unit 4",
+            "title": "A Linguistic Journey Around the World",
+            "lessons": [
+                {
+                    "id": "lesson1",
+                    "name": "Loanwords",
+                    "resources": {
+                        "worksheet": "resources/secondary-yr7/u4l1w.pdf",
+                        "presentation": "resources/secondary-yr7/u4l1p.pdf",
+                        "cribSheet": "resources/secondary-yr7/u4l1c.pdf"
+                    }
+                },
+                {
+                    "id": "lesson2",
+                    "name": "The Language Tree",
+                    "resources": {
+                        "worksheet": "resources/secondary-yr7/u4l2w.pdf",
+                        "presentation": "resources/secondary-yr7/u4l2p.pdf",
+                        "cribSheet": "resources/secondary-yr7/u4l2c.pdf"
+                    }
+                },
+                {
+                    "id": "lesson3",
+                    "name": "Romance Languages",
+                    "resources": {
+                        "worksheet": "resources/secondary-yr7/u4l3w.pdf",
+                        "presentation": "resources/secondary-yr7/u4l3p.pdf",
+                        "cribSheet": "resources/secondary-yr7/u4l3c.pdf"
+                    }
+                },
+                {
+                    "id": "lesson4",
+                    "name": "Germanic Languages",
+                    "resources": {
+                        "worksheet": "resources/secondary-yr7/u4l4w.pdf",
+                        "presentation": "resources/secondary-yr7/u4l4p.pdf",
+                        "cribSheet": "resources/secondary-yr7/u4l4c.pdf"
+                    }
+                },
+                {
+                    "id": "lesson5",
+                    "name": "Indo-European Languages",
+                    "resources": {
+                        "worksheet": "resources/secondary-yr7/u4l5w.pdf",
+                        "presentation": "resources/secondary-yr7/u4l5p.pdf",
+                        "cribSheet": "resources/secondary-yr7/u4l5c.pdf"
+                    }
+                },
+                {
+                    "id": "lesson6",
+                    "name": "Harry Potter and Latin",
+                    "resources": {
+                        "worksheet": "resources/secondary-yr7/u4l6w.pdf",
+                        "presentation": "resources/secondary-yr7/u4l6p.pdf",
+                        "cribSheet": "resources/secondary-yr7/u4l6c.pdf"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "unit5",
+            "type": "unit",
+            "category": "secondaryYr7",
+            "name": "Unit 5",
+            "title": "Languages Beyond Europe",
+            "lessons": [
+                {
+                    "id": "lesson1",
+                    "name": "China",
+                    "inDevelopment": true,
+                    "resources": {},
+                    "-resources": {
+                        "worksheet": "resources/secondary-yr7/u5l1w.pdf",
+                        "presentation": "resources/secondary-yr7/u5l1p.pdf",
+                        "cribSheet": "resources/secondary-yr7/u5l1c.pdf"
+                    }
+                },
+                {
+                    "id": "lesson2",
+                    "name": "India",
+                    "resources": {
+                        "worksheet": "resources/secondary-yr7/u5l2w.pdf",
+                        "presentation": "resources/secondary-yr7/u5l2p.pdf",
+                        "cribSheet": "resources/secondary-yr7/u5l2c.pdf"
+                    }
+                },
+                {
+                    "id": "lesson3",
+                    "name": "Japan",
+                    "resources": {
+                        "worksheet": "resources/secondary-yr7/u5l3w.pdf",
+                        "presentation": "resources/secondary-yr7/u5l3p.pdf",
+                        "cribSheet": "resources/secondary-yr7/u5l3c.pdf"
+                    }
+                },
+                {
+                    "id": "lesson4",
+                    "name": "Arabic",
+                    "inDevelopment": true,
+                    "resources": {},
+                    "-resources": {
+                        "worksheet": "resources/secondary-yr7/u5l4w.pdf",
+                        "presentation": "resources/secondary-yr7/u5l4p.pdf",
+                        "cribSheet": "resources/secondary-yr7/u5l4c.pdf"
+                    }
+                },
+                {
+                    "id": "lesson5",
+                    "name": "Russia",
+                    "inDevelopment": true,
+                    "resources": {},
+                    "-resources": {
+                        "worksheet": "resources/secondary-yr7/u5l5w.pdf",
+                        "presentation": "resources/secondary-yr7/u5l5p.pdf",
+                        "cribSheet": "resources/secondary-yr7/u5l5c.pdf"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "unit6",
+            "type": "unit",
+            "category": "secondaryYr7",
+            "name": "Unit 6",
+            "title": "Codes and Cryptography",
+            "lessons": [
+                {
+                    "id": "lesson1",
+                    "name": "The Atbash Cipher",
+                    "resources": {
+                        "worksheet": "resources/secondary-yr7/u6l1w.pdf",
+                        "presentation": "resources/secondary-yr7/u6l1p.pdf",
+                        "cribSheet": "resources/secondary-yr7/u6l1c.pdf"
+                    }
+                },
+                {
+                    "id": "lesson2",
+                    "name": "The Greek Alphabet",
+                    "resources": {
+                        "worksheet": "resources/secondary-yr7/u6l2w.pdf",
+                        "presentation": "resources/secondary-yr7/u6l2p.pdf",
+                        "cribSheet": "resources/secondary-yr7/u6l2c.pdf"
+                    }
+                },
+                {
+                    "id": "lesson3",
+                    "name": "Secret Languages",
+                    "resources": {
+                        "worksheet": "resources/secondary-yr7/u6l3w.pdf",
+                        "presentation": "resources/secondary-yr7/u6l3p.pdf",
+                        "cribSheet": "resources/secondary-yr7/u6l3c.pdf"
+                    }
+                },
+                {
+                    "id": "lesson4",
+                    "name": "Made Up Words and Languages",
+                    "resources": {
+                        "worksheet": "resources/secondary-yr7/u6l4w.pdf",
+                        "presentation": "resources/secondary-yr7/u6l4p.pdf",
+                        "cribSheet": "resources/secondary-yr7/u6l4c.pdf"
+                    }
+                },
+                {
+                    "id": "lesson5",
+                    "name": "Making a Language",
+                    "resources": {
+                        "worksheet": "resources/secondary-yr7/u6l5w.pdf",
+                        "presentation": "resources/secondary-yr7/u6l5p.pdf",
+                        "cribSheet": "resources/secondary-yr7/u6l5c.pdf"
+                    }
+                }
+            ]
         }
     ]
 }

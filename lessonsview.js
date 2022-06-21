@@ -8,7 +8,9 @@ export const RESOURCE_TYPE_NAMES = {
     worksheet: "Worksheet",
     worksheetExtension: "Extension worksheet",
     presentation: "Presentation",
-    cribSheet: "Crib sheet"
+    presentationExtension: "Extension presentation",
+    cribSheet: "Crib sheet",
+    cribSheetExtension: "Extension crib sheet"
 };
 
 export var ResourcePage = astronaut.component("ResourcePage", function(props, children, inter) {
@@ -70,7 +72,7 @@ export var LessonsViewScreen = astronaut.component("LessonsViewScreen", function
                 var page = ResourcePage({
                     showing: isDefaultResource,
                     url: resourceUrl,
-                    downloadFilename: `${props.unit.name} - ${props.lesson.name} - ${RESOURCE_TYPE_NAMES[resourceType]}.pdf`
+                    downloadFilename: `${props.unit.name} - ${lesson.name} - ${RESOURCE_TYPE_NAMES[resourceType]}.pdf`
                 }) ();
 
                 var button = PageMenuButton({page}) (RESOURCE_TYPE_NAMES[resourceType]);
