@@ -180,10 +180,8 @@
             "lessons": [
                 {
                     "id": "lesson1",
-                    "name": "Verbs",
-                    "inDevelopment": true,
-                    "resources": {},
-                    "-resources": {
+                    "name": "What is a Verb?",
+                    "resources": {
                         "worksheet": "resources/primary/u4l1w.pdf",
                         "presentation": "resources/primary/u4l1p.pdf",
                         "cribSheet": "resources/primary/u4l1c.pdf"
@@ -192,9 +190,7 @@
                 {
                     "id": "lesson2",
                     "name": "What is Gender?",
-                    "inDevelopment": true,
-                    "resources": {},
-                    "-resources": {
+                    "resources": {
                         "worksheet": "resources/primary/u4l2w.pdf",
                         "presentation": "resources/primary/u4l2p.pdf",
                         "cribSheet": "resources/primary/u4l2c.pdf"
@@ -203,16 +199,18 @@
                 {
                     "id": "lesson3",
                     "name": "Question Words",
-                    "inDevelopment": true,
-                    "resources": {}
+                    "resources": {
+                        "worksheet": "resources/primary/u4l3w.pdf",
+                        "presentation": "resources/primary/u4l3p.pdf",
+                        "cribSheet": "resources/primary/u4l3c.pdf"
+                    }
                 },
                 {
                     "id": "lesson4",
                     "name": "Word Order",
-                    "inDevelopment": true,
-                    "resources": {},
-                    "-resources": {
+                    "resources": {
                         "worksheet": "resources/primary/u4l4w.pdf",
+                        "worksheetExtension": "resources/primary/u4l4wext.pdf",
                         "presentation": "resources/primary/u4l4p.pdf",
                         "cribSheet": "resources/primary/u4l4c.pdf"
                     }
@@ -220,9 +218,8 @@
                 {
                     "id": "lesson5",
                     "name": "Vowels, Consonants and Phonics",
-                    "inDevelopment": true,
-                    "resources": {},
-                    "-resources": {
+                    "resources": {
+                        "worksheet": "resources/primary/u4l5w.pdf",
                         "presentation": "resources/primary/u4l5p.pdf",
                         "cribSheet": "resources/primary/u4l5c.pdf"
                     }
@@ -230,11 +227,10 @@
                 {
                     "id": "lesson6",
                     "name": "What is a Noun?",
-                    "inDevelopment": true,
-                    "resources": {},
-                    "-resources": {
-                        "presentation": "resources/primary/u4l5p.pdf",
-                        "cribSheet": "resources/primary/u4l5c.pdf"
+                    "resources": {
+                        "worksheet": "resources/primary/u4l6w.pdf",
+                        "presentation": "resources/primary/u4l6p.pdf",
+                        "cribSheet": "resources/primary/u4l6c.pdf"
                     }
                 }
             ]

@@ -6,6 +6,7 @@ import * as pdfViewer from "./pdfviewer.js";
 
 export const RESOURCE_TYPE_NAMES = {
     worksheet: "Worksheet",
+    worksheetExtension: "Extension worksheet",
     presentation: "Presentation",
     cribSheet: "Crib sheet"
 };
