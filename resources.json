@@ -227,10 +227,14 @@
                 {
                     "id": "lesson6",
                     "name": "What is a Noun?",
-                    "resources": {
+                    "inDevelopment": true,
+                    "-resources": {
                         "worksheet": "resources/primary/u4l6w.pdf",
                         "presentation": "resources/primary/u4l6p.pdf",
                         "cribSheet": "resources/primary/u4l6c.pdf"
+                    },
+                    "resources": {
+                        "presentation": "resources/primary/u4l6p.pdf"
                     }
                 }
             ]
