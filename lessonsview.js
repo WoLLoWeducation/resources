@@ -5,6 +5,7 @@ import * as markup from "./lib/adaptui/src/markup.js";
 import * as pdfViewer from "./pdfviewer.js";
 
 export const RESOURCE_TYPE_NAMES = {
+    unitOverview: "Overview information",
     worksheet: "Worksheet",
     worksheetExtension: "Extension worksheet",
     presentation: "Presentation",
@@ -55,13 +56,19 @@ export var LessonsViewScreen = astronaut.component("LessonsViewScreen", function
     var pagesToAdd = [];
     var firstLessonAdded = false;
 
+    var lessonNumber = 1;
+
     var menu = PageMenu() (...props.unit.lessons.map(function(lesson, i) {
-        var accordion = Accordion() (ElementNode("strong") (`${i + 1}. ${lesson.name}`));
+        var accordion = Accordion() (ElementNode("strong") (!lesson.notNumbered ? `${lessonNumber}. ${lesson.name}` : lesson.name));
 
         if (lesson.inDevelopment) {
             accordion.add(
                 Paragraph() ("This lesson is still in development.")
             );
+        }
+
+        if (!lesson.notNumbered) {
+            lessonNumber++;
         }
 
         accordion.add(
