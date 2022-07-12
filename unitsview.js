@@ -1,6 +1,8 @@
+import * as $g from "./lib/adaptui/src/adaptui.js";
 import * as astronaut from "./lib/adaptui/astronaut/astronaut.js";
 
 import * as main from "./script.js";
+import * as access from "./access.js";
 
 export var CategoryHeading = astronaut.component("CategoryHeading", function(props, children) {
     return Heading({level: 2, styles: {
@@ -13,29 +15,66 @@ export var UnitListing = astronaut.component("UnitListing", function(props, chil
         color: "var(--primaryUI)"
     }}) (props.unit.name);
 
-    var listing = Container() (
-        heading,
-        Paragraph() (
-            Text("This unit, "),
-            ElementNode("strong") (props.unit.title),
-            Text(", includes:")
-        ),
-        UnorderedList() (
-            props.unit.lessons.map(function(lesson) {
-                if (Object.keys(lesson.resources).length == 0) {
-                    return ListItem() (`${lesson.name} (in development)`);
-                }
+    var listing = Container() ();
 
-                var lessonLink = Link("javascript:void(0);") (lesson.inDevelopment ? `${lesson.name} (in development)` : lesson.name);
+    function renderListing() {
+        listing.clear().add(
+            heading,
+            Paragraph() (
+                Text("This unit, "),
+                ElementNode("strong") (props.unit.title),
+                Text(", includes:")
+            ),
+            UnorderedList() (
+                props.unit.lessons.map(function(lesson) {
+                    if (Object.keys(lesson.resources).length == 0) {
+                        return ListItem() (`${lesson.name} (in development)`);
+                    }
 
-                lessonLink.on("click", function() {
-                    main.openLessons(props.unit, lesson);
+                    var lessonLink = Link("javascript:void(0);") (lesson.inDevelopment ? `${lesson.name} (in development)` : lesson.name);
+
+                    lessonLink.on("click", function() {
+                        main.openLessons(props.unit, lesson);
+                    });
+
+                    var item = ListItem() (lessonLink);
+
+                    if (!lesson.isOpen && !access.isGranted()) {
+                        lessonLink.setStyle("color", "var(--lockedLink)");
+
+                        lessonLink.setAttribute("aria-label", `${lessonLink.getText()} (locked)`);
+
+                        item.add(
+                            Icon({
+                                icon: "lock",
+                                type: "dark embedded",
+                                styles: {
+                                    "display": "inline-block",
+                                    "width": "unset",
+                                    "height": "1em",
+                                    "margin": "0",
+                                    "margin-inline-start": "0.5em",
+                                    "border-radius": "0",
+                                    "vertical-align": "middle"
+                                },
+                                attributes: {
+                                    "title": "This resource is locked."
+                                }
+                            }) ()
+                        );
+                    }
+
+                    return item;
                 })
+            )
+        );
+    }
 
-                return ListItem() (lessonLink);
-            })
-        )
-    );
+    renderListing();
+
+    $g.sel("body").on("unlock", function() {
+        renderListing();
+    });
 
     heading.on("click", function() {
         main.openLessons(props.unit);
@@ -79,6 +118,28 @@ export var UnitsViewScreen = astronaut.component("UnitsViewScreen", function(pro
         window.open("https://theworldoflanguages.co.uk");
     });
 
+    var enterPasswordButton = Button() ("Enter password");
+    var requestResourcesButton = Button("secondary") ("Request resources");
+
+    enterPasswordButton.on("click", function() {
+        access.passwordEntryDialog.dialogOpen();
+    });
+
+    requestResourcesButton.on("click", function() {
+        window.open("https://theworldoflanguages.co.uk/request-resources/");
+    });
+
+    var lockedInfoCard = Card (
+        Heading() ("Viewing taster lessons only"),
+        Paragraph() ("Only a selection of taster lessons are available for you to view freely without requiring our permission. In order to access all our other lessons, you will need to gain approval from us."),
+        Paragraph() ("Approval can be obtained by contacting us through our resource request form on our main website where we will be able to give you further guidance on accessing our other resources."),
+        Paragraph() ("If you already have gained approval from us, you may unlock all our resources by entering the password that was sent to you."),
+        ButtonRow (
+            enterPasswordButton,
+            requestResourcesButton
+        )
+    );
+
     fetch("resources.json").then(function(response) {
         return response.json();
     }).then(function(data) {
@@ -103,7 +164,8 @@ export var UnitsViewScreen = astronaut.component("UnitsViewScreen", function(pro
                     Paragraph() ("Our resources are divided into units that are relevant to different Key Stages (such as Key Stage 2 or Key Stage 3); and inside each unit, there is around 5-6 lessons."),
                     Paragraph() ("Each lesson typically contains a worksheet, a presentation and a crib sheet, which can all be accessed in the menu for a chosen unit."),
                     Paragraph() ("For each lesson resource, you can view the contents of the resource in your browser without having to download it. We additionally provide you with the option to present a resource in a fullscreen mode, which you can use to deliver our presentations.")
-                )
+                ),
+                lockedInfoCard
             ),
             Section (
                 CategoryHeading() ("Primary resources (Key Stage 2)"),
@@ -116,6 +178,14 @@ export var UnitsViewScreen = astronaut.component("UnitsViewScreen", function(pro
                 CategoryListing({category: "secondaryYr7", units: data.units}) ()
             )
         );
+
+        if (access.isGranted()) {
+            lockedInfoCard.remove();
+        }
+    
+        $g.sel("body").on("unlock", function() {
+            lockedInfoCard.remove();
+        });
     });
 
     return screen;

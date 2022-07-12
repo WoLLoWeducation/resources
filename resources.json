@@ -36,6 +36,7 @@
                 {
                     "id": "lesson3",
                     "name": "Multilingual Me!",
+                    "isOpen": true,
                     "resources": {
                         "worksheet": "resources/primary/u1l3w.pdf",
                         "presentation": "resources/primary/u1l3p.pdf",
@@ -98,6 +99,7 @@
                 {
                     "id": "lesson3",
                     "name": "Norse Influence and the Days of the Week",
+                    "isOpen": true,
                     "resources": {
                         "worksheet": "resources/primary/u2l3w.pdf",
                         "presentation": "resources/primary/u2l3p.pdf",
@@ -222,6 +224,7 @@
                 {
                     "id": "lesson2",
                     "name": "What is Gender?",
+                    "isOpen": true,
                     "resources": {
                         "worksheet": "resources/primary/u4l2w.pdf",
                         "presentation": "resources/primary/u4l2p.pdf",
