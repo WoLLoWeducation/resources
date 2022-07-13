@@ -1,6 +1,30 @@
 {
     "units": [
         {
+            "id": "info",
+            "type": "info",
+            "category": "primary",
+            "name": "Course information",
+            "lessons": [
+                {
+                    "id": "schemeOfWork",
+                    "name": "Scheme of work and National Curriculum links",
+                    "notNumbered": true,
+                    "resources": {
+                        "document": "resources/primary/sowncl.pdf"
+                    }
+                },
+                {
+                    "id": "schemeOfWorkFirstYear",
+                    "name": "Scheme of work for first year of study",
+                    "notNumbered": true,
+                    "resources": {
+                        "document": "resources/primary/sowy1.pdf"
+                    }
+                }
+            ]
+        },
+        {
             "id": "unit1",
             "type": "unit",
             "category": "primary",
@@ -8,7 +32,7 @@
             "title": "My World of Languages",
             "lessons": [
                 {
-                    "id": "Overview",
+                    "id": "overview",
                     "name": "Unit overview",
                     "notNumbered": true,
                     "resources": {
@@ -71,7 +95,7 @@
             "title": "The History of Language",
             "lessons": [
                 {
-                    "id": "Overview",
+                    "id": "overview",
                     "name": "Unit overview",
                     "notNumbered": true,
                     "resources": {
@@ -134,7 +158,7 @@
             "title": "Wonderful Words",
             "lessons": [
                 {
-                    "id": "Overview",
+                    "id": "overview",
                     "name": "Unit overview",
                     "notNumbered": true,
                     "resources": {
@@ -205,7 +229,7 @@
             "title": "How Language Works",
             "lessons": [
                 {
-                    "id": "Overview",
+                    "id": "overview",
                     "name": "Unit overview",
                     "notNumbered": true,
                     "resources": {
@@ -282,7 +306,7 @@
             "title": "A Linguistic Journey Around the World",
             "lessons": [
                 {
-                    "id": "Overview",
+                    "id": "overview",
                     "name": "Unit overview",
                     "notNumbered": true,
                     "resources": {
@@ -341,7 +365,7 @@
             "title": "Creating a Language",
             "lessons": [
                 {
-                    "id": "Overview",
+                    "id": "overview",
                     "name": "Unit overview",
                     "notNumbered": true,
                     "resources": {
@@ -531,6 +555,22 @@
             ]
         },
         {
+            "id": "info",
+            "type": "info",
+            "category": "secondaryYr7",
+            "name": "Course information",
+            "lessons": [
+                {
+                    "id": "schemeOfWork",
+                    "name": "Scheme of work",
+                    "notNumbered": true,
+                    "resources": {
+                        "document": "resources/secondary-yr7/sow.pdf"
+                    }
+                }
+            ]
+        },
+        {
             "id": "unit1",
             "type": "unit",
             "category": "secondaryYr7",
@@ -538,7 +578,7 @@
             "title": "The World of Languages",
             "lessons": [
                 {
-                    "id": "Overview",
+                    "id": "overview",
                     "name": "Unit overview",
                     "notNumbered": true,
                     "resources": {
@@ -597,7 +637,7 @@
             "title": "The History of English",
             "lessons": [
                 {
-                    "id": "Overview",
+                    "id": "overview",
                     "name": "Unit overview",
                     "notNumbered": true,
                     "resources": {
@@ -668,7 +708,7 @@
             "title": "How Does Language Work?",
             "lessons": [
                 {
-                    "id": "Overview",
+                    "id": "overview",
                     "name": "Unit overview",
                     "notNumbered": true,
                     "resources": {
@@ -740,7 +780,7 @@
             "title": "A Linguistic Journey Around the World",
             "lessons": [
                 {
-                    "id": "Overview",
+                    "id": "overview",
                     "name": "Unit overview",
                     "notNumbered": true,
                     "resources": {
@@ -811,7 +851,7 @@
             "title": "Languages Beyond Europe",
             "lessons": [
                 {
-                    "id": "Overview",
+                    "id": "overview",
                     "name": "Unit overview",
                     "notNumbered": true,
                     "resources": {
@@ -879,7 +919,7 @@
             "title": "Codes and Cryptography",
             "lessons": [
                 {
-                    "id": "Overview",
+                    "id": "overview",
                     "name": "Unit overview",
                     "notNumbered": true,
                     "resources": {

@@ -7,6 +7,7 @@ import * as access from "./access.js";
 import * as pdfViewer from "./pdfviewer.js";
 
 export const RESOURCE_TYPE_NAMES = {
+    document: "Document",
     unitOverview: "Overview information",
     worksheet: "Worksheet",
     worksheetExtension: "Extension worksheet",
@@ -80,11 +81,11 @@ export var LessonsViewScreen = astronaut.component("LessonsViewScreen", function
         Header (
             IconButton({icon: "back", alt: "Back to units list", attributes: {"aui-bind": "back"}}) (),
             HeaderPageMenuButton() (),
-            ElementNode("span") (
+            props.unit.title ? ElementNode("span") (
                 ElementNode("strong") (props.unit.name),
                 Text(": "),
                 Text(props.unit.title)
-            )
+            ) : Text(props.unit.name)
         )
     );
 

@@ -20,11 +20,11 @@ export var UnitListing = astronaut.component("UnitListing", function(props, chil
     function renderListing() {
         listing.clear().add(
             heading,
-            Paragraph() (
+            props.unit.type == "unit" ? Paragraph() (
                 Text("This unit, "),
                 ElementNode("strong") (props.unit.title),
                 Text(", includes:")
-            ),
+            ) : Paragraph() (),
             UnorderedList() (
                 props.unit.lessons.map(function(lesson) {
                     if (Object.keys(lesson.resources).length == 0) {
