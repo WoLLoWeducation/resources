@@ -83,6 +83,10 @@ export function showUnlockConfirmationDialog() {
         return;
     }
 
+    if ($g.core.parameter("old")) {
+        return;
+    }
+
     unlockConfirmationDialog.dialogOpen();
 }
 
