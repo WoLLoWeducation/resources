@@ -145,7 +145,22 @@ export var UnitsViewScreen = astronaut.component("UnitsViewScreen", function(pro
     }).then(function(data) {
         page.clear().add(
             Section (
-                Heading() ("WoLLoW Resources"),
+                Image({
+                    source: "media/hippo.svg",
+                    alt: "WoLLoW the HiPPo",
+                    styles: {
+                        "height": "10rem"
+                    }
+                }) (),
+                Heading({
+                    level: 1,
+                    attributes: {
+                        "aui-justify": "middle"
+                    },
+                    styles: {
+                        "margin-top": "0"
+                    }
+                }) ("WoLLoW Resources"),
                 Accordion({open: true, attributes: {"aui-mode": "boxed"}}) (
                     Text("About these resources"),
                     Paragraph() ("We hope you enjoy using our free WoLLoW lesson resources. You can use our resources in the following ways:"),
