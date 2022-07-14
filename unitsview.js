@@ -161,7 +161,7 @@ export var UnitsViewScreen = astronaut.component("UnitsViewScreen", function(pro
                 Accordion({open: false, attributes: {"aui-mode": "boxed"}}) (
                     Text("Using this site"),
                     Paragraph() ("The WoLLoW Resources site holds a repository of all the resources created by WoLLoW as PDF files that you can view, download and print."),
-                    Paragraph() ("Our resources are divided into units that are relevant to different Key Stages (such as Key Stage 2 or Key Stage 3); and inside each unit, there is around 5-6 lessons."),
+                    Paragraph() ("Our resources are divided into units that are relevant to different Key Stages (such as Key Stage 2 or Key Stage 3); and inside each unit, there are around 5-6 lessons."),
                     Paragraph() ("Each lesson typically contains a worksheet, a presentation and a crib sheet, which can all be accessed in the menu for a chosen unit."),
                     Paragraph() ("For each lesson resource, you can view the contents of the resource in your browser without having to download it. We additionally provide you with the option to present a resource in a fullscreen mode, which you can use to deliver our presentations.")
                 ),
