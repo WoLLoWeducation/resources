@@ -7,17 +7,10 @@
             "name": "Course information",
             "lessons": [
                 {
-                    "id": "schemeOfWork",
-                    "name": "Scheme of work and National Curriculum links",
+                    "id": "schemeOfWorkYr1",
+                    "name": "Scheme of work (year 1)",
                     "notNumbered": true,
-                    "resources": {
-                        "document": "resources/primary/sowncl.pdf"
-                    }
-                },
-                {
-                    "id": "schemeOfWorkFirstYear",
-                    "name": "Scheme of work for first year of study",
-                    "notNumbered": true,
+                    "isOpen": true,
                     "resources": {
                         "document": "resources/primary/sowy1.pdf"
                     }
@@ -35,6 +28,7 @@
                     "id": "overview",
                     "name": "Unit overview",
                     "notNumbered": true,
+                    "isOpen": true,
                     "resources": {
                         "unitOverview": "resources/primary/u1o.pdf"
                     }
@@ -98,6 +92,7 @@
                     "id": "overview",
                     "name": "Unit overview",
                     "notNumbered": true,
+                    "isOpen": true,
                     "resources": {
                         "unitOverview": "resources/primary/u2o.pdf"
                     }
@@ -161,6 +156,7 @@
                     "id": "overview",
                     "name": "Unit overview",
                     "notNumbered": true,
+                    "isOpen": true,
                     "resources": {
                         "unitOverview": "resources/primary/u3o.pdf"
                     }
@@ -232,6 +228,7 @@
                     "id": "overview",
                     "name": "Unit overview",
                     "notNumbered": true,
+                    "isOpen": true,
                     "resources": {
                         "unitOverview": "resources/primary/u4o.pdf"
                     }
@@ -309,21 +306,28 @@
                     "id": "overview",
                     "name": "Unit overview",
                     "notNumbered": true,
+                    "isOpen": true,
                     "resources": {
                         "unitOverview": "resources/primary/u5o.pdf"
                     }
                 },
                 {
                     "id": "lesson1",
-                    "name": "The Language Tree",
-                    "inDevelopment": true,
-                    "resources": {}
+                    "name": "The Linguistic Tree",
+                    "resources": {
+                        "worksheet": "resources/primary/u5l1w.pdf",
+                        "presentation": "resources/primary/u5l1p.pdf",
+                        "cribSheet": "resources/primary/u5l1c.pdf"
+                    }
                 },
                 {
                     "id": "lesson2",
                     "name": "Romance Languages",
-                    "inDevelopment": true,
-                    "resources": {}
+                    "resources": {
+                        "worksheet": "resources/primary/u5l2w.pdf",
+                        "presentation": "resources/primary/u5l2p.pdf",
+                        "cribSheet": "resources/primary/u5l2c.pdf"
+                    }
                 },
                 {
                     "id": "lesson3",
@@ -339,7 +343,7 @@
                 },
                 {
                     "id": "lesson5",
-                    "name": "Idiom",
+                    "name": "What is Idiom?",
                     "resources": {
                         "worksheet": "resources/primary/u5l5w.pdf",
                         "presentation": "resources/primary/u5l5p.pdf",
@@ -368,6 +372,7 @@
                     "id": "overview",
                     "name": "Unit overview",
                     "notNumbered": true,
+                    "isOpen": true,
                     "resources": {
                         "unitOverview": "resources/primary/u6o.pdf"
                     }
@@ -564,6 +569,7 @@
                     "id": "schemeOfWork",
                     "name": "Scheme of work",
                     "notNumbered": true,
+                    "isOpen": true,
                     "resources": {
                         "document": "resources/secondary-yr7/sow.pdf"
                     }
@@ -581,6 +587,7 @@
                     "id": "overview",
                     "name": "Unit overview",
                     "notNumbered": true,
+                    "isOpen": true,
                     "resources": {
                         "unitOverview": "resources/secondary-yr7/u1o.pdf"
                     }
@@ -640,6 +647,7 @@
                     "id": "overview",
                     "name": "Unit overview",
                     "notNumbered": true,
+                    "isOpen": true,
                     "resources": {
                         "unitOverview": "resources/secondary-yr7/u2o.pdf"
                     }
@@ -711,6 +719,7 @@
                     "id": "overview",
                     "name": "Unit overview",
                     "notNumbered": true,
+                    "isOpen": true,
                     "resources": {
                         "unitOverview": "resources/secondary-yr7/u3o.pdf"
                     }
@@ -783,6 +792,7 @@
                     "id": "overview",
                     "name": "Unit overview",
                     "notNumbered": true,
+                    "isOpen": true,
                     "resources": {
                         "unitOverview": "resources/secondary-yr7/u4o.pdf"
                     }
@@ -854,6 +864,7 @@
                     "id": "overview",
                     "name": "Unit overview",
                     "notNumbered": true,
+                    "isOpen": true,
                     "resources": {
                         "unitOverview": "resources/secondary-yr7/u5o.pdf"
                     }
@@ -922,6 +933,7 @@
                     "id": "overview",
                     "name": "Unit overview",
                     "notNumbered": true,
+                    "isOpen": true,
                     "resources": {
                         "unitOverview": "resources/secondary-yr7/u6o.pdf"
                     }
