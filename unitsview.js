@@ -184,12 +184,12 @@ export var UnitsViewScreen = astronaut.component("UnitsViewScreen", function(pro
             ),
             Section (
                 CategoryHeading() ("Primary resources (Key Stage 2)"),
-                Paragraph() ("Our primary resources, worksheets and crib sheets are being finalised; however, we're excited to offer our users some of our already-completed materials that we have been writing for primary school lessons. Please keep checking back to see our added resources when we've completed the development of our units."),
                 CategoryListing({category: "primary", units: data.units}) (),
                 // TODO: Primary lower years
                 // CategoryHeading() ("Alternative primary resources for lower years (Key Stage 2)"),
                 // CategoryListing({category: "primaryLowerAlt", units: data.units}) ()
                 CategoryHeading() ("Secondary resources for Year 7 (Key Stage 3)"),
+                Paragraph() ("Our secondary resources, worksheets and crib sheets are being finalised; however, we're excited to offer our users some of our already-completed materials that we have been writing for secondary school lessons. Please keep checking back to see our added resources when we've completed the development of our units."),
                 CategoryListing({category: "secondaryYr7", units: data.units}) ()
             )
         );

@@ -4,7 +4,7 @@
             "id": "info",
             "type": "info",
             "category": "primary",
-            "name": "Course information",
+            "name": "Course information and resources",
             "lessons": [
                 {
                     "id": "schemeOfWorkYr1",
@@ -13,6 +13,14 @@
                     "isOpen": true,
                     "resources": {
                         "document": "resources/primary/sowy1.pdf"
+                    }
+                },
+                {
+                    "id": "workbook",
+                    "name": "Workbook",
+                    "notNumbered": true,
+                    "resources": {
+                        "document": "resources/primary/workbook.pdf"
                     }
                 }
             ]
@@ -332,14 +340,20 @@
                 {
                     "id": "lesson3",
                     "name": "Germanic Languages",
-                    "inDevelopment": true,
-                    "resources": {}
+                    "resources": {
+                        "worksheet": "resources/primary/u5l3w.pdf",
+                        "presentation": "resources/primary/u5l3p.pdf",
+                        "cribSheet": "resources/primary/u5l3c.pdf"
+                    }
                 },
                 {
                     "id": "lesson4",
                     "name": "Sanskrit, Hindi and Urdu",
-                    "inDevelopment": true,
-                    "resources": {}
+                    "resources": {
+                        "worksheet": "resources/primary/u5l4w.pdf",
+                        "presentation": "resources/primary/u5l4p.pdf",
+                        "cribSheet": "resources/primary/u5l4c.pdf"
+                    }
                 },
                 {
                     "id": "lesson5",
@@ -563,7 +577,7 @@
             "id": "info",
             "type": "info",
             "category": "secondaryYr7",
-            "name": "Course information",
+            "name": "Course information and resources",
             "lessons": [
                 {
                     "id": "schemeOfWork",
