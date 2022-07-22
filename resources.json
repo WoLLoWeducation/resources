@@ -741,6 +741,7 @@
                 {
                     "id": "lesson1",
                     "name": "Infinitives",
+                    "isOpen": true,
                     "resources": {
                         "worksheet": "resources/secondary-yr7/u3l1w.pdf",
                         "presentation": "resources/secondary-yr7/u3l1p.pdf",
@@ -955,6 +956,7 @@
                 {
                     "id": "lesson1",
                     "name": "The Atbash Cipher",
+                    "isOpen": true,
                     "resources": {
                         "worksheet": "resources/secondary-yr7/u6l1w.pdf",
                         "presentation": "resources/secondary-yr7/u6l1p.pdf",
