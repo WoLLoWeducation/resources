@@ -16,7 +16,7 @@ export var PasswordEntryDialog = astronaut.component("PasswordEntryDialog", func
 
     var dialog = Dialog({
         styles: {
-            "max-width": "20vw"
+            "max-width": "500px"
         }
     }) (
         Heading() ("Enter password to access resources"),
@@ -95,7 +95,7 @@ export function init() {
     
     unlockConfirmationDialog = Dialog({
         styles: {
-            "max-width": "20vw"
+            "max-width": "500px"
         }
     }) (
         Heading() ("Resources unlocked"),
