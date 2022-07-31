@@ -587,6 +587,15 @@
                     "resources": {
                         "document": "resources/secondary-yr7/sow.pdf"
                     }
+                },
+                {
+                    "id": "workbook",
+                    "name": "Workbook",
+                    "notNumbered": true,
+                    "isOpen": true,
+                    "resources": {
+                        "document": "resources/secondary-yr7/workbook.pdf"
+                    }
                 }
             ]
         },
@@ -604,6 +613,16 @@
                     "isOpen": true,
                     "resources": {
                         "unitOverview": "resources/secondary-yr7/u1o.pdf"
+                    }
+                },
+                {
+                    "id": "introduction",
+                    "name": "Introductory lesson",
+                    "notNumbered": true,
+                    "resources": {
+                        "worksheet": "resources/secondary-yr7/u1iw.pdf",
+                        "presentation": "resources/secondary-yr7/u1ip.pdf",
+                        "cribSheet": "resources/secondary-yr7/u1ic.pdf"
                     }
                 },
                 {
@@ -997,6 +1016,83 @@
                         "worksheet": "resources/secondary-yr7/u6l5w.pdf",
                         "presentation": "resources/secondary-yr7/u6l5p.pdf",
                         "cribSheet": "resources/secondary-yr7/u6l5c.pdf"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "unit7",
+            "type": "unit",
+            "category": "secondaryYr8",
+            "name": "Unit 7",
+            "title": "Back to School",
+            "lessons": [
+                {
+                    "id": "overview",
+                    "name": "Unit overview",
+                    "notNumbered": true,
+                    "isOpen": true,
+                    "inDevelopment": true,
+                    "resources": {}
+                },
+                {
+                    "id": "lesson1",
+                    "name": "Back to School",
+                    "resources": {
+                        "worksheet": "resources/secondary-yr8/u7l1w.pdf",
+                        "presentation": "resources/secondary-yr8/u7l1p.pdf",
+                        "cribSheet": "resources/secondary-yr8/u7l1c.pdf"
+                    }
+                },
+                {
+                    "id": "lesson2",
+                    "name": "The Language of Science",
+                    "resources": {
+                        "worksheet": "resources/secondary-yr8/u7l2w.pdf",
+                        "presentation": "resources/secondary-yr8/u7l2p.pdf",
+                        "cribSheet": "resources/secondary-yr8/u7l2c.pdf"
+                    }
+                },
+                {
+                    "id": "lesson3",
+                    "name": "The Language of Music",
+                    "resources": {
+                        "worksheet": "resources/secondary-yr8/u7l3w.pdf",
+                        "presentation": "resources/secondary-yr8/u7l3p.pdf",
+                        "cribSheet": "resources/secondary-yr8/u7l3c.pdf"
+                    }
+                },
+                {
+                    "id": "lesson4",
+                    "name": "The Language of Music",
+                    "inDevelopment": true,
+                    "resources": {},
+                    "-resources": {
+                        "worksheet": "resources/secondary-yr8/u7l4w.pdf",
+                        "presentation": "resources/secondary-yr8/u7l4p.pdf",
+                        "cribSheet": "resources/secondary-yr8/u7l4c.pdf"
+                    }
+                },
+                {
+                    "id": "lesson5",
+                    "name": "The Language of Computing",
+                    "inDevelopment": true,
+                    "resources": {},
+                    "-resources": {
+                        "worksheet": "resources/secondary-yr8/u7l5w.pdf",
+                        "presentation": "resources/secondary-yr8/u7l5p.pdf",
+                        "cribSheet": "resources/secondary-yr8/u7l5c.pdf"
+                    }
+                },
+                {
+                    "id": "lesson6",
+                    "name": "The Language of Geography",
+                    "inDevelopment": true,
+                    "resources": {},
+                    "-resources": {
+                        "worksheet": "resources/secondary-yr8/u7l6w.pdf",
+                        "presentation": "resources/secondary-yr8/u7l6p.pdf",
+                        "cribSheet": "resources/secondary-yr8/u7l6c.pdf"
                     }
                 }
             ]
