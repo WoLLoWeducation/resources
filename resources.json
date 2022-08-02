@@ -611,7 +611,9 @@
                     "name": "Unit overview",
                     "notNumbered": true,
                     "isOpen": true,
-                    "resources": {
+                    "inDevelopment": true,
+                    "resources": {},
+                    "-resources": {
                         "unitOverview": "resources/secondary-yr7/u1o.pdf"
                     }
                 },
@@ -681,7 +683,9 @@
                     "name": "Unit overview",
                     "notNumbered": true,
                     "isOpen": true,
-                    "resources": {
+                    "inDevelopment": true,
+                    "resources": {},
+                    "-resources": {
                         "unitOverview": "resources/secondary-yr7/u2o.pdf"
                     }
                 },
@@ -753,7 +757,9 @@
                     "name": "Unit overview",
                     "notNumbered": true,
                     "isOpen": true,
-                    "resources": {
+                    "inDevelopment": true,
+                    "resources": {},
+                    "-resources": {
                         "unitOverview": "resources/secondary-yr7/u3o.pdf"
                     }
                 },
@@ -827,7 +833,9 @@
                     "name": "Unit overview",
                     "notNumbered": true,
                     "isOpen": true,
-                    "resources": {
+                    "inDevelopment": true,
+                    "resources": {},
+                    "-resources": {
                         "unitOverview": "resources/secondary-yr7/u4o.pdf"
                     }
                 },
@@ -899,7 +907,9 @@
                     "name": "Unit overview",
                     "notNumbered": true,
                     "isOpen": true,
-                    "resources": {
+                    "inDevelopment": true,
+                    "resources": {},
+                    "-resources": {
                         "unitOverview": "resources/secondary-yr7/u5o.pdf"
                     }
                 },
@@ -968,7 +978,9 @@
                     "name": "Unit overview",
                     "notNumbered": true,
                     "isOpen": true,
-                    "resources": {
+                    "inDevelopment": true,
+                    "resources": {},
+                    "-resources": {
                         "unitOverview": "resources/secondary-yr7/u6o.pdf"
                     }
                 },
