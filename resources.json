@@ -1076,10 +1076,8 @@
                 },
                 {
                     "id": "lesson4",
-                    "name": "The Language of Music",
-                    "inDevelopment": true,
-                    "resources": {},
-                    "-resources": {
+                    "name": "The Language of Computing",
+                    "resources": {
                         "worksheet": "resources/secondary-yr8/u7l4w.pdf",
                         "presentation": "resources/secondary-yr8/u7l4p.pdf",
                         "cribSheet": "resources/secondary-yr8/u7l4c.pdf"
@@ -1087,7 +1085,7 @@
                 },
                 {
                     "id": "lesson5",
-                    "name": "The Language of Computing",
+                    "name": "The Language of Maths",
                     "inDevelopment": true,
                     "resources": {},
                     "-resources": {
