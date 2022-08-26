@@ -113,9 +113,14 @@ export var UnitsViewScreen = astronaut.component("UnitsViewScreen", function(pro
     );
 
     var websiteNavigationButton = Button("navigational") ("Visit the main WoLLoW website");
+    var websiteResourcesNavigationButton = Button("navigational") ("Visit the old resources page");
 
     websiteNavigationButton.on("click", function() {
         window.open("https://theworldoflanguages.co.uk");
+    });
+
+    websiteResourcesNavigationButton.on("click", function() {
+        window.open("https://theworldoflanguages.co.uk/resources");
     });
 
     var enterPasswordButton = Button() ("Enter password");
@@ -171,7 +176,8 @@ export var UnitsViewScreen = astronaut.component("UnitsViewScreen", function(pro
                         ListItem() ("Use as one-off lessons to encourage students to think about language in different ways")
                     ),
                     Paragraph() ("Our resources are copyrighted to The World of Languages and Languages of the World (WoLLoW). Please keep all lesson resources in their original format and be sure to credit WoLLoW as you teach the course. Please keep the resources to within your school and if any other schools like the look of our work, send them to our website (theworldoflanguages.co.uk) where they can request access to our resources. We would be very grateful for any feedback."),
-                    websiteNavigationButton
+                    websiteNavigationButton,
+                    websiteResourcesNavigationButton
                 ),
                 Accordion({open: false, attributes: {"aui-mode": "boxed"}}) (
                     Text("Using this site"),
