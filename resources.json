@@ -1087,7 +1087,9 @@
                     "id": "lesson5",
                     "name": "The Language of Maths",
                     "inDevelopment": true,
-                    "resources": {},
+                    "resources": {
+                        "presentation": "resources/secondary-yr8/u7l5p.pdf"
+                    },
                     "-resources": {
                         "worksheet": "resources/secondary-yr8/u7l5w.pdf",
                         "presentation": "resources/secondary-yr8/u7l5p.pdf",
