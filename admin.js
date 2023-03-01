@@ -412,8 +412,6 @@ export function updateResource(unitId, category, lessonId, resourceType, resourc
     }).then(function(data) {
         resources = data;
 
-        return Promise.reject("Oh no");
-
         filePath = resources
             ?.units
             ?.find((unit) => unit.id == unitId && unit.category == category)
