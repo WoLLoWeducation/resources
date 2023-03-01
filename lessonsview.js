@@ -59,6 +59,9 @@ export var ResourcePage = astronaut.component("ResourcePage", function(props, ch
         page.clear().add(
             pdfViewer.PdfContainer({
                 url: props.url,
+                unit: props.unit,
+                lesson: props.lesson,
+                resourceType: props.resourceType,
                 downloadFilename: props.downloadFilename,
                 styles: {
                     height: "100%"
@@ -116,6 +119,9 @@ export var LessonsViewScreen = astronaut.component("LessonsViewScreen", function
                     showing: isDefaultResource,
                     isOpen: lesson.isOpen,
                     url: resourceUrl,
+                    unit: props.unit,
+                    lesson: lesson,
+                    resourceType,
                     downloadFilename: `${props.unit.name} - ${lesson.name} - ${RESOURCE_TYPE_NAMES[resourceType]}.pdf`
                 }) ();
 

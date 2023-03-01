@@ -145,6 +145,11 @@ export var UnitsViewScreen = astronaut.component("UnitsViewScreen", function(pro
         )
     );
 
+    var adminInfoCard = Card (
+        Heading() ("Admin Mode enabled"),
+        Paragraph() ("You are signed in as an admin. With Admin Mode, you can update resources and other content on the site.")
+    );
+
     fetch("resources.json").then(function(response) {
         return response.json();
     }).then(function(data) {
@@ -166,7 +171,8 @@ export var UnitsViewScreen = astronaut.component("UnitsViewScreen", function(pro
                         "margin-top": "0"
                     }
                 }) ("WoLLoW Resources"),
-                Accordion({open: true, attributes: {"aui-mode": "boxed"}}) (
+                adminInfoCard,
+                Accordion({open: !access.isAdmin(), attributes: {"aui-mode": "boxed"}}) (
                     Text("About these resources"),
                     Paragraph() ("We hope you enjoy using our free WoLLoW lesson resources. You can use our resources in the following ways:"),
                     UnorderedList (
@@ -204,6 +210,10 @@ export var UnitsViewScreen = astronaut.component("UnitsViewScreen", function(pro
 
         if (access.isGranted()) {
             lockedInfoCard.remove();
+        }
+
+        if (!access.isAdmin()) {
+            adminInfoCard.remove();
         }
     
         $g.sel("body").on("unlock", function() {

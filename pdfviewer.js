@@ -1,6 +1,9 @@
 import * as $g from "./lib/adaptui/src/adaptui.js";
 import * as astronaut from "./lib/adaptui/astronaut/astronaut.js";
 
+import * as access from "./access.js";
+import * as admin from "./admin.js";
+
 export var pdfjs = window["pdfjs-dist/build/pdf"];
 
 var PdfControlButton = astronaut.component("PdfControlButton", function(props, children) {
@@ -57,6 +60,7 @@ export var PdfContainer = astronaut.component("PdfContainer", function(props, ch
 
     var previousButton = PdfControlButton({icon: "back", alt: "Previous page"}) ();
     var nextButton = PdfControlButton({icon: "forward", alt: "Next page"}) ();
+    var updateButton = PdfControlButton({icon: "edit", alt: "Update this resource", label: "Update"}) ();
     var downloadButton = PdfControlButton({icon: "download", alt: "Download document"}) ();
     var openExternalButton = PdfControlButton({icon: "opennew", alt: "Open document in new tab"}) ();
     var fitWidthButton = PdfControlButton({icon: "panin", alt: "Fit document by width"}) ();
@@ -136,6 +140,10 @@ export var PdfContainer = astronaut.component("PdfContainer", function(props, ch
 
     nextButton.on("click", function() {
         nextPage();
+    });
+
+    updateButton.on("click", function() {
+        admin.uploadResourceToUpdate(props.unit.id, props.unit.category, props.lesson.id, props.resourceType);
     });
 
     downloadButton.on("click", function() {
@@ -225,7 +233,7 @@ export var PdfContainer = astronaut.component("PdfContainer", function(props, ch
         render();
     });
 
-    return Container({props, styles: {
+    var container = Container({props, styles: {
         ...props?.styles,
         display: "flex",
         flexDirection: "column"
@@ -238,6 +246,7 @@ export var PdfContainer = astronaut.component("PdfContainer", function(props, ch
         Container({styles: {
             display: "flex"
         }}) (
+            updateButton,
             downloadButton,
             openExternalButton,
             fitWidthButton,
@@ -251,4 +260,10 @@ export var PdfContainer = astronaut.component("PdfContainer", function(props, ch
             presentButton
         )
     );
+
+    if (!access.isAdmin()) {
+        updateButton.remove();
+    }
+
+    return container;
 });

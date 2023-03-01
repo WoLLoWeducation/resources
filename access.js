@@ -1,10 +1,16 @@
 import * as $g from "./lib/adaptui/src/adaptui.js";
 import * as astronaut from "./lib/adaptui/astronaut/astronaut.js";
 
+import * as admin from "./admin.js";
+
 const ACCESS_PASSWORD_BASE64 = "ODc1MzM2MTA="; // Only a soft security measure
 
 export function isGranted() {
     return localStorage.getItem("wollow_password") == atob(ACCESS_PASSWORD_BASE64);
+}
+
+export function isAdmin() {
+    return admin.getAccessToken() != null;
 }
 
 export var previouslyUnlocked = isGranted();
@@ -92,7 +98,7 @@ export function showUnlockConfirmationDialog() {
 
 export function init() {
     passwordEntryDialog = PasswordEntryDialog() ();
-    
+
     unlockConfirmationDialog = Dialog({
         styles: {
             "max-width": "500px"
@@ -114,6 +120,11 @@ export function init() {
             }) ("OK")
         )
     );
+
+    if (isAdmin() && !isGranted()) {
+        localStorage.setItem("wollow_password", atob(ACCESS_PASSWORD_BASE64));
+        $g.sel("body").emit("unlock");
+    }
 }
 
 export function checkUrl() {

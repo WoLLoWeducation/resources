@@ -4,18 +4,29 @@ import * as astronaut from "./lib/adaptui/astronaut/astronaut.js";
 astronaut.unpack();
 
 import * as access from "./access.js";
+import * as admin from "./admin.js";
 import * as unitsView from "./unitsview.js";
 import * as lessonsView from "./lessonsview.js";
 
 var unitsViewScreen = unitsView.UnitsViewScreen({showing: true}) ();
 var currentLessonViewScreen = null;
 
+export var fileUploadInput = ElementNode("input", {
+    attributes: {
+        "type": "file"
+    },
+    styles: {
+        "display": "none"
+    }
+}) ();
+
 access.init();
 
-var root = Container() (
+export var root = Container() (
     unitsViewScreen,
     access.passwordEntryDialog,
-    access.unlockConfirmationDialog
+    access.unlockConfirmationDialog,
+    fileUploadInput
 );
 
 export function showUnitsView() {
@@ -53,3 +64,4 @@ $g.theme.setProperty("fontHeadings", `"Rubik", system-ui, sans-serif`);
 astronaut.render(root);
 
 access.checkUrl();
+admin.checkUrl();
