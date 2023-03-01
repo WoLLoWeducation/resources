@@ -150,9 +150,18 @@ export var UnitsViewScreen = astronaut.component("UnitsViewScreen", function(pro
         )
     );
 
+    var signOutAdminButton = Button() ("Sign out");
+
+    signOutAdminButton.on("click", function() {
+        localStorage.removeItem("wollow_accessToken");
+
+        window.location.replace("/");
+    });
+
     var adminInfoCard = Card (
         Heading() ("Admin Mode enabled"),
-        Paragraph() ("You are signed in as an admin. With Admin Mode, you can update resources and other content on the site.")
+        Paragraph() ("You are signed in as an admin. With Admin Mode, you can update resources and other content on the site."),
+        signOutAdminButton
     );
 
     fetch("resources.json", {cache: "no-store"}).then(function(response) {
