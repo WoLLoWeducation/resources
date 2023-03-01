@@ -196,6 +196,11 @@ export var LessonSettingsDialog = astronaut.component("LessonSettingsDialog", fu
         isOpenCheckbox.setValue(true);
     }
 
+    if (Object.keys(props.lesson.resources).length == 0) {
+        inDevelopmentCheckbox.setValue(true);
+        inDevelopmentCheckbox.setAttribute("disabled", true);
+    }
+
     saveButton.on("click", function() {
         dialog.dialogClose().then(function() {
             dialog.remove();
