@@ -5,7 +5,7 @@ import * as markup from "./lib/adaptui/src/markup.js";
 
 import * as access from "./access.js";
 import * as admin from "./admin.js";
-import * as pdfViewer from "./pdfviewer.js";
+import * as resourceViewer from "./resourceviewer.js";
 
 export const RESOURCE_TYPE_NAMES = {
     document: "Document",
@@ -57,18 +57,33 @@ export var ResourcePage = astronaut.component("ResourcePage", function(props, ch
             return;
         }
 
-        page.clear().add(
-            pdfViewer.PdfContainer({
-                url: props.url,
-                unit: props.unit,
-                lesson: props.lesson,
-                resourceType: props.resourceType,
-                downloadFilename: props.downloadFilename,
-                styles: {
-                    height: "100%"
-                }
-            }) ()
-        );
+        if (props.url.endsWith(".pdf")) {
+            page.clear().add(
+                resourceViewer.PdfContainer({
+                    url: props.url,
+                    unit: props.unit,
+                    lesson: props.lesson,
+                    resourceType: props.resourceType,
+                    downloadFilename: props.downloadFilename,
+                    styles: {
+                        height: "100%"
+                    }
+                }) ()
+            );
+        } else {
+            page.clear().add(
+                resourceViewer.OfficeEmbedContainer({
+                    url: props.url,
+                    unit: props.unit,
+                    lesson: props.lesson,
+                    resourceType: props.resourceType,
+                    downloadFilename: props.downloadFilename,
+                    styles: {
+                        height: "100%"
+                    }
+                }) ()
+            );
+        }
 
         alreadyLoaded = true;
     };
@@ -118,6 +133,8 @@ export var LessonsViewScreen = astronaut.component("LessonsViewScreen", function
         accordion.add(
             ...Object.keys(lesson.resources).map(function(resourceType, i) {
                 var resourceUrl = lesson.resources[resourceType];
+                var resourceExtensionParts = resourceUrl.split(".");
+                var resourceExtension = resourceExtensionParts[resourceExtensionParts.length - 1];
                 var isDefaultResource = i == 0 && ((props.lesson == null && !firstLessonAdded) || (props.lesson != null && props.lesson.id == lesson.id));
 
                 var page = ResourcePage({
@@ -127,7 +144,7 @@ export var LessonsViewScreen = astronaut.component("LessonsViewScreen", function
                     unit: props.unit,
                     lesson: lesson,
                     resourceType,
-                    downloadFilename: `${props.unit.name} - ${lesson.name} - ${RESOURCE_TYPE_NAMES[resourceType]}.pdf`
+                    downloadFilename: `${props.unit.name} - ${lesson.name} - ${RESOURCE_TYPE_NAMES[resourceType]}.${resourceExtension}`
                 }) ();
 
                 var button = PageMenuButton({page}) (RESOURCE_TYPE_NAMES[resourceType]);

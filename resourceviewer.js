@@ -6,7 +6,7 @@ import * as admin from "./admin.js";
 
 export var pdfjs = window["pdfjs-dist/build/pdf"];
 
-var PdfControlButton = astronaut.component("PdfControlButton", function(props, children) {
+var ViewerControlButton = astronaut.component("ViewerControlButton", function(props, children) {
     return Button({
         ...props,
         attributes: {
@@ -40,7 +40,7 @@ var PdfControlButton = astronaut.component("PdfControlButton", function(props, c
     );
 });
 
-var PdfControlSpacer = astronaut.component("PdfControlSpacer", function(props, children) {
+var ViewerControlSpacer = astronaut.component("ViewerControlSpacer", function(props, children) {
     return ElementNode("span", {
         ...props,
         styles: {
@@ -58,15 +58,15 @@ export var PdfContainer = astronaut.component("PdfContainer", function(props, ch
         }
     }) ();
 
-    var previousButton = PdfControlButton({icon: "back", alt: "Previous page"}) ();
-    var nextButton = PdfControlButton({icon: "forward", alt: "Next page"}) ();
-    var updateButton = PdfControlButton({icon: "edit", alt: "Update this resource", label: "Update"}) ();
-    var downloadButton = PdfControlButton({icon: "download", alt: "Download document"}) ();
-    var openExternalButton = PdfControlButton({icon: "opennew", alt: "Open document in new tab"}) ();
-    var fitWidthButton = PdfControlButton({icon: "panin", alt: "Fit document by width"}) ();
-    var fitFullButton = PdfControlButton({icon: "panout", alt: "Fit document fully"}) ();
-    var printButton = PdfControlButton({icon: "print", alt: "Print", noTitle: true, label: "Print"}) ();
-    var presentButton = PdfControlButton({icon: "fullscreen", alt: "Present", noTitle: true, label: "Present", desktopOnly: true}) ();
+    var previousButton = ViewerControlButton({icon: "back", alt: "Previous page"}) ();
+    var nextButton = ViewerControlButton({icon: "forward", alt: "Next page"}) ();
+    var updateButton = ViewerControlButton({icon: "edit", alt: "Update this resource", label: "Update"}) ();
+    var downloadButton = ViewerControlButton({icon: "download", alt: "Download document"}) ();
+    var openExternalButton = ViewerControlButton({icon: "opennew", alt: "Open document in new tab"}) ();
+    var fitWidthButton = ViewerControlButton({icon: "panin", alt: "Fit document by width"}) ();
+    var fitFullButton = ViewerControlButton({icon: "panout", alt: "Fit document fully"}) ();
+    var printButton = ViewerControlButton({icon: "print", alt: "Print", noTitle: true, label: "Print"}) ();
+    var presentButton = ViewerControlButton({icon: "fullscreen", alt: "Present", noTitle: true, label: "Present", desktopOnly: true}) ();
 
     var pageNumberInput = NumericalInput({
         styles: {
@@ -251,13 +251,72 @@ export var PdfContainer = astronaut.component("PdfContainer", function(props, ch
             openExternalButton,
             fitWidthButton,
             fitFullButton,
-            PdfControlSpacer() (),
+            ViewerControlSpacer() (),
             previousButton,
             pageNumberInput,
             nextButton,
-            PdfControlSpacer() (),
+            ViewerControlSpacer() (),
             printButton,
             presentButton
+        )
+    );
+
+    if (!access.isAdmin()) {
+        updateButton.remove();
+    }
+
+    return container;
+});
+
+export var OfficeEmbedContainer = astronaut.component("OfficeEmbedContainer", function(props, children) {
+    var updateButton = ViewerControlButton({icon: "edit", alt: "Update this resource", label: "Update"}) ();
+    var downloadButton = ViewerControlButton({icon: "download", alt: "Download document"}) ();
+    var openExternalButton = ViewerControlButton({icon: "opennew", alt: "Open document in new tab"}) ();
+
+    var embedUrl = `https://view.officeapps.live.com/op/embed.aspx?src=${new URL(props.url, window.location.href).href}`;
+
+    downloadButton.on("click", function() {
+        var link = $g.create("a");
+
+        link.setAttribute("href", props.url);
+        link.setAttribute("download", props.downloadFilename || props.url);
+
+        link.get().click();
+    });
+
+    openExternalButton.on("click", function() {
+        window.open(embedUrl);
+    });
+
+    var container = Container({props, styles: {
+        ...props?.styles,
+        display: "flex",
+        flexDirection: "column"
+    }}) (
+        Container({styles: {
+            display: "flex",
+            height: "0",
+            flexGrow: "1",
+            overflow: "auto"
+        }}) (
+            ElementNode("iframe", {
+                attributes: {
+                    "src": embedUrl,
+                    "allowfullscreen": true
+                },
+                styles: {
+                    width: "100%",
+                    height: "100%",
+                    border: "none"
+                }
+            }) ()
+        ),
+        Container({styles: {
+            display: "flex"
+        }}) (
+            updateButton,
+            downloadButton,
+            openExternalButton
         )
     );
 
