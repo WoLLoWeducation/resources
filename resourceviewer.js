@@ -270,7 +270,7 @@ export var PdfContainer = astronaut.component("PdfContainer", function(props, ch
 
 export var OfficeEmbedContainer = astronaut.component("OfficeEmbedContainer", function(props, children) {
     var updateButton = ViewerControlButton({icon: "edit", alt: "Update this resource", label: "Update"}) ();
-    var downloadButton = ViewerControlButton({icon: "download", alt: "Download document"}) ();
+    var downloadButton = ViewerControlButton({icon: "download", alt: "Download document", label: "Download"}) ();
     var openExternalButton = ViewerControlButton({icon: "opennew", alt: "Open document in new tab"}) ();
 
     var embedUrl = `https://view.officeapps.live.com/op/embed.aspx?src=${new URL(props.url, window.location.href).href}`;
