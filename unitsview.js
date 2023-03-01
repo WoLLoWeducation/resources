@@ -150,7 +150,7 @@ export var UnitsViewScreen = astronaut.component("UnitsViewScreen", function(pro
         Paragraph() ("You are signed in as an admin. With Admin Mode, you can update resources and other content on the site.")
     );
 
-    fetch("resources.json").then(function(response) {
+    fetch("resources.json", {cache: "no-store"}).then(function(response) {
         return response.json();
     }).then(function(data) {
         page.clear().add(

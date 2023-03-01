@@ -4,6 +4,7 @@ import * as aside from "./lib/adaptui/src/aside.js";
 import * as markup from "./lib/adaptui/src/markup.js";
 
 import * as access from "./access.js";
+import * as admin from "./admin.js";
 import * as pdfViewer from "./pdfviewer.js";
 
 export const RESOURCE_TYPE_NAMES = {
@@ -143,6 +144,16 @@ export var LessonsViewScreen = astronaut.component("LessonsViewScreen", function
                 return button;
             })
         );
+
+        if (access.isAdmin()) {
+            var addResourceButton = Button() ("Add resource");
+
+            addResourceButton.on("click", function() {
+                admin.openAddResourceDialog(props.unit.id, props.unit.category, lesson.id);
+            });
+
+            accordion.add(addResourceButton);
+        }
 
         return accordion;
     }));

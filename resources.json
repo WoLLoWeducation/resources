@@ -1109,5 +1109,10 @@
                 }
             ]
         }
-    ]
+    ],
+    "categoryPaths": {
+        "primary": "resources/primary",
+        "secondaryYr7": "resources/secondary-yr7",
+        "secondaryYr8": "resources/secondary-yr8"
+    }
 }

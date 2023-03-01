@@ -2,6 +2,7 @@ import * as $g from "./lib/adaptui/src/adaptui.js";
 import * as astronaut from "./lib/adaptui/astronaut/astronaut.js";
 
 import * as main from "./script.js";
+import * as lessonsView from "./lessonsview.js";
 
 var currentLoadingDialog = null;
 
@@ -62,6 +63,52 @@ export var LoadingDialog = astronaut.component("LoadingDialog", function(props, 
     );
 });
 
+export var AddResourceDialog = astronaut.component("AddResourceDialog", function(props, children) {
+    var resourceTypeInput = SelectionInput (
+        ...Object.keys(lessonsView.RESOURCE_TYPE_NAMES).map((key) => SelectionInputOption(key) (Text(lessonsView.RESOURCE_TYPE_NAMES[key])))
+    );
+
+    var addResourceButton = Button() ("Add");
+
+    var dialog = Dialog({
+        styles: {
+            "max-width": "500px"
+        }
+    }) (
+        Heading() ("Add a new resource"),
+        DialogContent (
+            Paragraph() ("You can only have one resource of each resource type per lesson."),
+            Label (
+                Text("Resource type"),
+                resourceTypeInput
+            )
+        ),
+        ButtonRow({
+            attributes: {
+                "aui-mode": "end"
+            }
+        }) (
+            addResourceButton,
+            Button({
+                mode: "secondary",
+                attributes: {
+                    "aui-bind": "close"
+                }
+            }) ("Cancel")
+        )
+    );
+
+    addResourceButton.on("click", function() {
+        uploadResourceToUpdate(props.unitId, props.category, props.lessonId, resourceTypeInput.getValue());
+
+        dialog.dialogClose().then(function() {
+            dialog.remove();
+        });
+    });
+
+    return dialog;
+});
+
 export function openLoadingDialog(title = "Loading...", description = "") {
     if (currentLoadingDialog != null) {
         currentLoadingDialog.remove();
@@ -86,6 +133,18 @@ export function closeLoadingDialog(dialog = currentLoadingDialog) {
     });
 }
 
+export function openAddResourceDialog(uploadUnitId, uploadCategory, uploadLessonId) {
+    var dialog = AddResourceDialog({
+        unitId: uploadUnitId,
+        category: uploadCategory,
+        lessonId: uploadLessonId
+    }) ();
+
+    main.root.add(dialog);
+
+    dialog.dialogOpen();
+}
+
 export function checkUrl() {
     if ($g.core.parameter("admintoken") != null) {
         localStorage.setItem("wollow_accessToken", $g.core.parameter("admintoken"));
@@ -97,7 +156,7 @@ export function waitForBuildSuccess() {
     var dialog = openLoadingDialog("Publishing changes...", "This can take a few minutes. You may dismiss this and carry on making other changes while this process runs in the background.");
 
     function check() {
-        fetch("https://api.github.com/repos/WoLLoWeducation/resources/actions/runs").then(function(response) {
+        fetch("https://api.github.com/repos/WoLLoWeducation/resources/actions/runs", {cache: "no-store"}).then(function(response) {
             return response.json();
         }).then(function(data) {
             var hasOngoingBuilds = false;
@@ -118,7 +177,38 @@ export function waitForBuildSuccess() {
         })
     }
 
-    check();
+    setTimeout(function() {
+        check();
+    }, 5_000);
+}
+
+export function updateResourceList(modifierFunction) {
+    var currentSha;
+    var newData;
+
+    return fetch("resources.json", {cache: "no-store"}).then(function(response) {
+        return response.json();
+    }).then(function(data) {
+        return modifierFunction(data);
+    }).then(function(data) {
+        newData = data;
+
+        return fetch(`https://api.github.com/repos/WoLLoWeducation/resources/contents/resources.json`);
+    }).then(function(response) {
+        return response.json();
+    }).then(function(data) {
+        currentSha = data.sha;
+
+        return fetch(`https://api.github.com/repos/WoLLoWeducation/resources/contents/resources.json`, {
+            method: "PUT",
+            headers: getGithubHeaders(),
+            body: JSON.stringify({
+                message: "Update resources list",
+                content: btoa(JSON.stringify(newData, null, 4)),
+                sha: currentSha
+            })
+        });
+    });
 }
 
 export function updateResource(unitId, category, lessonId, resourceType, resourceData, newResourceFilename = null) {
@@ -129,7 +219,7 @@ export function updateResource(unitId, category, lessonId, resourceType, resourc
 
     openLoadingDialog("Updating resource on site...");
 
-    return fetch("resources.json").then(function(response) {
+    return fetch("resources.json", {cache: "no-store"}).then(function(response) {
         return response.json();
     }).then(function(data) {
         resources = data;
@@ -154,7 +244,7 @@ export function updateResource(unitId, category, lessonId, resourceType, resourc
                 return Promise.reject(`Tried to create a resource for unit ID \`${unitId}\` and lesson ID \`${lessonId}\` but no filename for the new resource was chosen`);
             }
 
-            filePath = `${categroyPath}/${newResourceFilename}`;
+            filePath = `${categoryPath}/${newResourceFilename}`;
             createResource = true;
         }
 
@@ -180,9 +270,27 @@ export function updateResource(unitId, category, lessonId, resourceType, resourc
             })
         });
     }).then(function() {
-        setTimeout(function() {
-            waitForBuildSuccess();            
-        }, 5_000);
+        if (!createResource) {
+            return Promise.resolve();
+        }
+
+        openLoadingDialog("Updating list of resources...");
+
+        return updateResourceList(function(data) {
+            var lesson = data
+                ?.units
+                ?.find((unit) => unit.id == unitId && unit.category == category)
+                ?.lessons
+                ?.find((lesson) => lesson.id == lessonId)
+            ;
+
+            lesson.resources ||= {};
+            lesson.resources[resourceType] = filePath;
+
+            return Promise.resolve(data);
+        });
+    }).then(function() {
+        waitForBuildSuccess();
     });
 }
 
@@ -199,6 +307,7 @@ $g.waitForLoad().then(function() {
     main.fileUploadInput.on("change", function() {
         if (uploadUnitId != null) {
             fileToBase64(main.fileUploadInput.get().files[0]).then(function(resourceData) {
+                console.log(resourceData);
                 var extensionParts = main.fileUploadInput.get().files[0].name.split(".");
                 var extension = extensionParts[extensionParts.length - 1];
 
@@ -213,4 +322,4 @@ $g.waitForLoad().then(function() {
             });
         }
     });
-})
+});
