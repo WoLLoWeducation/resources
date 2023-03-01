@@ -27,7 +27,7 @@ export var UnitListing = astronaut.component("UnitListing", function(props, chil
             ) : Paragraph() (),
             UnorderedList() (
                 props.unit.lessons.map(function(lesson) {
-                    if (Object.keys(lesson.resources).length == 0) {
+                    if (Object.keys(lesson.resources).length == 0 && !access.isAdmin()) {
                         return ListItem() (`${lesson.name} (in development)`);
                     }
 
@@ -62,6 +62,11 @@ export var UnitListing = astronaut.component("UnitListing", function(props, chil
                                 }
                             }) ()
                         );
+                    }
+
+                    if (lesson.inDevelopment && access.isAdmin()) {
+                        lessonLink.setStyle("color", "var(--dangerousUI)");
+                        lessonLink.setStyle("font-weight", "bold");
                     }
 
                     return item;

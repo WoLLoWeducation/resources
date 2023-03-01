@@ -10,6 +10,9 @@ var uploadUnitId = null;
 var uploadCategory = null;
 var uploadLessonId = null;
 var uploadResourceType = null;
+var waitingForBuildSuccess = false;
+
+export var changesPublishedDialog = null;
 
 function fileToBase64(file) {
     return new Promise(function(resolve, reject) {
@@ -63,6 +66,40 @@ export var LoadingDialog = astronaut.component("LoadingDialog", function(props, 
     );
 });
 
+export var ChangesPublishedDialog = astronaut.component("ChangesPublishedDialog", function(props, children) {
+    var reloadButton = Button() ("Reload");
+
+    var dialog = Dialog({
+        styles: {
+            "max-width": "500px"
+        }
+    }) (
+        Heading() ("Changes published"),
+        DialogContent (
+            Paragraph() ("The changes you have made are now publicly viewable. To see the updated site, reload the page.")
+        ),
+        ButtonRow({
+            attributes: {
+                "aui-mode": "end"
+            }
+        }) (
+            reloadButton,
+            Button({
+                mode: "secondary",
+                attributes: {
+                    "aui-bind": "close"
+                }
+            }) ("Dismiss")
+        )
+    );
+
+    reloadButton.on("click", function() {
+        window.location.reload();
+    });
+
+    return dialog;
+});
+
 export var AddResourceDialog = astronaut.component("AddResourceDialog", function(props, children) {
     var resourceTypeInput = SelectionInput (
         ...Object.keys(lessonsView.RESOURCE_TYPE_NAMES).map((key) => SelectionInputOption(key) (Text(lessonsView.RESOURCE_TYPE_NAMES[key])))
@@ -109,6 +146,84 @@ export var AddResourceDialog = astronaut.component("AddResourceDialog", function
     return dialog;
 });
 
+export var LessonSettingsDialog = astronaut.component("LessonSettingsDialog", function(props, children) {
+    var nameInput = Input({value: props.lesson.name, placeholder: "Shown in the lessons list"}) ();
+    var inDevelopmentCheckbox = CheckboxInput() ();
+    var isOpenCheckbox = CheckboxInput() ();
+
+    var saveButton = Button() ("Save");
+
+    var dialog = Dialog({
+        styles: {
+            "max-width": "500px"
+        }
+    }) (
+        Heading() ("Lesson settings"),
+        DialogContent (
+            Label (
+                Text("Lesson name"),
+                nameInput
+            ),
+            Label (
+                inDevelopmentCheckbox,
+                Text("Show lesson as being in-development")
+            ),
+            Label (
+                isOpenCheckbox,
+                Text("Allow lesson to be viewable without password")
+            )
+        ),
+        ButtonRow({
+            attributes: {
+                "aui-mode": "end"
+            }
+        }) (
+            saveButton,
+            Button({
+                mode: "secondary",
+                attributes: {
+                    "aui-bind": "close"
+                }
+            }) ("Cancel")
+        )
+    );
+
+    if (props.lesson.inDevelopment) {
+        inDevelopmentCheckbox.setValue(true);
+    }
+
+    if (props.lesson.isOpen) {
+        isOpenCheckbox.setValue(true);
+    }
+
+    saveButton.on("click", function() {
+        dialog.dialogClose().then(function() {
+            dialog.remove();
+
+            openLoadingDialog("Saving lesson settings...");
+
+            return updateResourceList(function(data) {
+                var lesson = data
+                    ?.units
+                    ?.find((unit) => unit.id == props.unitId && unit.category == props.category)
+                    ?.lessons
+                    ?.find((lesson) => lesson.id == props.lesson.id)
+                ;
+
+                lesson.name = nameInput.getValue().trim();
+                lesson.inDevelopment = inDevelopmentCheckbox.getValue();
+                lesson.isOpen = isOpenCheckbox.getValue();
+
+                return Promise.resolve(data);
+            });
+        }).then(function() {
+            waitForBuildSuccess();
+        });
+    });
+
+    return dialog;
+});
+
 export function openLoadingDialog(title = "Loading...", description = "") {
     if (currentLoadingDialog != null) {
         currentLoadingDialog.remove();
@@ -124,21 +239,27 @@ export function openLoadingDialog(title = "Loading...", description = "") {
 }
 
 export function closeLoadingDialog(dialog = currentLoadingDialog) {
-    dialog.dialogClose().then(function() {
+    return dialog.dialogClose().then(function() {
         dialog.remove();
 
         if (dialog == currentLoadingDialog) {
             currentLoadingDialog = null;
         }
+
+        return Promise.resolve();
     });
 }
 
-export function openAddResourceDialog(uploadUnitId, uploadCategory, uploadLessonId) {
-    var dialog = AddResourceDialog({
-        unitId: uploadUnitId,
-        category: uploadCategory,
-        lessonId: uploadLessonId
-    }) ();
+export function openAddResourceDialog(unitId, category, lessonId) {
+    var dialog = AddResourceDialog({unitId, category, lessonId}) ();
+
+    main.root.add(dialog);
+
+    dialog.dialogOpen();
+}
+
+export function openLessonSettingsDialog(unitId, category, lesson) {
+    var dialog = LessonSettingsDialog({unitId, category, lesson}) ();
 
     main.root.add(dialog);
 
@@ -153,10 +274,16 @@ export function checkUrl() {
 }
 
 export function waitForBuildSuccess() {
+    if (waitingForBuildSuccess) {
+        return;
+    }
+
+    waitingForBuildSuccess = true;
+
     var dialog = openLoadingDialog("Publishing changes...", "This can take a few minutes. You may dismiss this and carry on making other changes while this process runs in the background.");
 
     function check() {
-        fetch("https://api.github.com/repos/WoLLoWeducation/resources/actions/runs", {cache: "no-store"}).then(function(response) {
+        fetch("https://api.github.com/repos/WoLLoWeducation/resources/actions/runs", {cache: "no-store", headers: getGithubHeaders()}).then(function(response) {
             return response.json();
         }).then(function(data) {
             var hasOngoingBuilds = false;
@@ -172,7 +299,11 @@ export function waitForBuildSuccess() {
                     check();
                 }, 5_000);
             } else {
-                closeLoadingDialog(dialog);
+                (dialog.hasAttribute("open") ? closeLoadingDialog(dialog) : Promise.resolve()).then(function() {
+                    changesPublishedDialog.dialogOpen();
+
+                    waitingForBuildSuccess = false;
+                });
             }
         })
     }
@@ -193,7 +324,7 @@ export function updateResourceList(modifierFunction) {
     }).then(function(data) {
         newData = data;
 
-        return fetch(`https://api.github.com/repos/WoLLoWeducation/resources/contents/resources.json`);
+        return fetch(`https://api.github.com/repos/WoLLoWeducation/resources/contents/resources.json`, {headers: getGithubHeaders()});
     }).then(function(response) {
         return response.json();
     }).then(function(data) {
@@ -252,7 +383,7 @@ export function updateResource(unitId, category, lessonId, resourceType, resourc
             return Promise.resolve();
         }
 
-        return fetch(`https://api.github.com/repos/WoLLoWeducation/resources/contents/${filePath}`).then(function(response) {
+        return fetch(`https://api.github.com/repos/WoLLoWeducation/resources/contents/${filePath}`, {headers: getGithubHeaders()}).then(function(response) {
             return response.json();
         }).then(function(data) {
             currentResourceSha = data.sha;
@@ -301,6 +432,10 @@ export function uploadResourceToUpdate(unitId, category, lessonId, resourceType)
     uploadResourceType = resourceType;
 
     main.fileUploadInput.get().click();
+}
+
+export function init() {
+    changesPublishedDialog = ChangesPublishedDialog() ();
 }
 
 $g.waitForLoad().then(function() {

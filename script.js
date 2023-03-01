@@ -21,11 +21,13 @@ export var fileUploadInput = ElementNode("input", {
 }) ();
 
 access.init();
+admin.init();
 
 export var root = Container() (
     unitsViewScreen,
     access.passwordEntryDialog,
     access.unlockConfirmationDialog,
+    admin.changesPublishedDialog,
     fileUploadInput
 );
 

@@ -98,13 +98,17 @@ export var LessonsViewScreen = astronaut.component("LessonsViewScreen", function
 
     var lessonNumber = 1;
 
-    var menu = PageMenu() (...props.unit.lessons.map(function(lesson, i) {
+    var menu = PageMenu() (...props.unit.lessons.map(function(lesson) {
         var accordion = Accordion() (ElementNode("strong") (!lesson.notNumbered ? `${lessonNumber}. ${lesson.name}` : lesson.name));
 
         if (lesson.inDevelopment) {
             accordion.add(
                 Paragraph() ("This lesson is still in development.")
             );
+        }
+
+        if (Object.keys(lesson.resources).length == 0 && props.lesson?.id == lesson.id) {
+            accordion.setAttribute("open", true);
         }
 
         if (!lesson.notNumbered) {
@@ -129,7 +133,7 @@ export var LessonsViewScreen = astronaut.component("LessonsViewScreen", function
                 var button = PageMenuButton({page}) (RESOURCE_TYPE_NAMES[resourceType]);
 
                 if (isDefaultResource) {
-                    accordion.setAttribute("open", "");
+                    accordion.setAttribute("open", true);
                     page.inter.load();
                 }
 
@@ -147,12 +151,18 @@ export var LessonsViewScreen = astronaut.component("LessonsViewScreen", function
 
         if (access.isAdmin()) {
             var addResourceButton = Button() ("Add resource");
+            var lessonSettingsButton = Button() ("Lesson settings");
 
             addResourceButton.on("click", function() {
                 admin.openAddResourceDialog(props.unit.id, props.unit.category, lesson.id);
             });
 
+            lessonSettingsButton.on("click", function() {
+                admin.openLessonSettingsDialog(props.unit.id, props.unit.category, lesson);
+            });
+
             accordion.add(addResourceButton);
+            accordion.add(lessonSettingsButton);
         }
 
         return accordion;
