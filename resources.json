@@ -1101,9 +1101,7 @@
                     "id": "lesson6",
                     "name": "The Language of Geography",
                     "inDevelopment": true,
-                    "resources": {
-                        "worksheet": "resources/secondary-yr8/rename-me-vAJs6-IYzsGkTFlb.pdf"
-                    },
+                    "resources": {},
                     "-resources": {
                         "worksheet": "resources/secondary-yr8/u7l6w.pdf",
                         "presentation": "resources/secondary-yr8/u7l6p.pdf",
