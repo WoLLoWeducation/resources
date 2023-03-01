@@ -229,6 +229,42 @@ export var LessonSettingsDialog = astronaut.component("LessonSettingsDialog", fu
     return dialog;
 });
 
+export var ErrorDialog = astronaut.component("ErrorDialog", function(props, children) {
+    return Dialog({
+        styles: {
+            "max-width": "500px"
+        }
+    }) (
+        Heading() ("We ran into a problem"),
+        DialogContent (
+            Paragraph() ("An error occured when trying to update the site. The changes you made won't affect the site's stability, but those changes may not have been applied."),
+            Paragraph() ("If you keep on seeing this error, then please send the following error message to the site's developer to get this issue fixed:"),
+            Container({
+                styles: {
+                    padding: "0.5rem"
+                }
+            }) (
+                CodeBlock({
+                    styles: {
+                        whiteSpace: "pre-wrap"
+                    }
+                }) (Text(props.error.toString()))
+            )
+        ),
+        ButtonRow({
+            attributes: {
+                "aui-mode": "end"
+            }
+        }) (
+            Button({
+                attributes: {
+                    "aui-bind": "close"
+                }
+            }) ("OK")
+        )
+    );
+});
+
 export function openLoadingDialog(title = "Loading...", description = "") {
     if (currentLoadingDialog != null) {
         currentLoadingDialog.remove();
@@ -244,7 +280,7 @@ export function openLoadingDialog(title = "Loading...", description = "") {
 }
 
 export function closeLoadingDialog(dialog = currentLoadingDialog) {
-    return dialog.dialogClose().then(function() {
+    return (dialog?.dialogClose() || Promise.resolve()).then(function() {
         dialog.remove();
 
         if (dialog == currentLoadingDialog) {
@@ -276,6 +312,18 @@ export function checkUrl() {
         localStorage.setItem("wollow_accessToken", $g.core.parameter("admintoken"));
         $g.sel("body").emit("unlock");
     }
+}
+
+export function handleError(error) {
+    console.error(error);
+
+    var dialog = ErrorDialog({error}) ();
+
+    main.root.add(dialog);
+
+    closeLoadingDialog().then(function() {
+        dialog.dialogOpen();        
+    });
 }
 
 export function waitForBuildSuccess() {
@@ -310,7 +358,9 @@ export function waitForBuildSuccess() {
                     waitingForBuildSuccess = false;
                 });
             }
-        })
+        }).catch(function(error) {
+            handleError(error);
+        });
     }
 
     setTimeout(function() {
@@ -344,6 +394,8 @@ export function updateResourceList(modifierFunction) {
                 sha: currentSha
             })
         });
+    }).catch(function(error) {
+        handleError(error);
     });
 }
 
@@ -359,6 +411,8 @@ export function updateResource(unitId, category, lessonId, resourceType, resourc
         return response.json();
     }).then(function(data) {
         resources = data;
+
+        return Promise.reject("Oh no");
 
         filePath = resources
             ?.units
@@ -427,6 +481,8 @@ export function updateResource(unitId, category, lessonId, resourceType, resourc
         });
     }).then(function() {
         waitForBuildSuccess();
+    }).catch(function(error) {
+        handleError(error);
     });
 }
 
