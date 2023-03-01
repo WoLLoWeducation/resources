@@ -447,7 +447,6 @@ $g.waitForLoad().then(function() {
     main.fileUploadInput.on("change", function() {
         if (uploadUnitId != null) {
             fileToBase64(main.fileUploadInput.get().files[0]).then(function(resourceData) {
-                console.log(resourceData);
                 var extensionParts = main.fileUploadInput.get().files[0].name.split(".");
                 var extension = extensionParts[extensionParts.length - 1];
 
