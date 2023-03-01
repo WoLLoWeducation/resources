@@ -1088,7 +1088,8 @@
                     "name": "The Language of Maths",
                     "inDevelopment": true,
                     "resources": {
-                        "presentation": "resources/secondary-yr8/u7l5p.pdf"
+                        "presentation": "resources/secondary-yr8/u7l5p.pdf",
+                        "document": "resources/secondary-yr8/rename-me-k5nQ8bxdnTfyt7OT.docx"
                     },
                     "-resources": {
                         "worksheet": "resources/secondary-yr8/u7l5w.pdf",
