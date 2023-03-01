@@ -1088,8 +1088,7 @@
                     "name": "The Language of Maths",
                     "inDevelopment": true,
                     "resources": {
-                        "presentation": "resources/secondary-yr8/u7l5p.pdf",
-                        "document": "resources/secondary-yr8/rename-me-k5nQ8bxdnTfyt7OT.docx"
+                        "presentation": "resources/secondary-yr8/u7l5p.pdf"
                     },
                     "-resources": {
                         "worksheet": "resources/secondary-yr8/u7l5w.pdf",
@@ -1101,9 +1100,7 @@
                     "id": "lesson6",
                     "name": "The Language of Geography",
                     "inDevelopment": true,
-                    "resources": {
-                        "worksheet": "resources/secondary-yr8/rename-me-OTVm7CvFdVSPAmlC.pdf"
-                    },
+                    "resources": {},
                     "-resources": {
                         "worksheet": "resources/secondary-yr8/u7l6w.pdf",
                         "presentation": "resources/secondary-yr8/u7l6p.pdf",
