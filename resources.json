@@ -1098,15 +1098,15 @@
                 },
                 {
                     "id": "lesson6",
-                    "name": "Test Resource",
-                    "inDevelopment": false,
+                    "name": "The Language of Geography",
+                    "inDevelopment": true,
                     "resources": {},
                     "-resources": {
                         "worksheet": "resources/secondary-yr8/u7l6w.pdf",
                         "presentation": "resources/secondary-yr8/u7l6p.pdf",
                         "cribSheet": "resources/secondary-yr8/u7l6c.pdf"
                     },
-                    "isOpen": true
+                    "isOpen": false
                 }
             ]
         }
